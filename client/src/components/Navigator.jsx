@@ -1,120 +1,174 @@
-// get all the navigatos from database
+import {
+  CancelSharp,
+  KeyboardArrowLeft,
+  KeyboardArrowRight,
+} from "@mui/icons-material";
+import IconRoom from "./IconRoom";
 
 const Navigator = () => {
   return (
-    <div className="flex gap-4 justify-center">
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div >
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
+    <div className="flex flex-row-reverse gap-4 items-center py-4 px-16">
+      <div className="flex">
+        <p className="whitespace-nowrap">Display total before taxes</p>
+        <p>switchOnButton</p>
       </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
+      <div>
+        <p>Filters</p>
       </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
+      <div className="flex overflow-x-scroll relative items-center no-scrollbar">
+        {/* TODO: <design>@15@(m) &0& #0# =Adding click function to left right button arrows= */}
+        <div className="flex absolute justify-between items-center w-full">
+          {/* TODO: <design>@@(l) &0& #0# =make area nearby button transparent= */}
+          <button className="p-1 bg-gray-100 rounded-full border">
+            <KeyboardArrowLeft />
+          </button>
+          <button className="p-1 bg-gray-100 rounded-full border">
+            <KeyboardArrowRight />
+          </button>
+        </div>
+        {categoryfilters.map((item) => (
+          <IconRoom key={item.name} item={item} />
+        ))}
+        {/* TODO: <context level>@time@(resource) &0& #0# =action= */}
+        {/* TODO: <A>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
+        {/* TODO: <A>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
+        {/*  TODO: <A>@@() &0& #0# =adding search function in details <time consuming>= */}
+        {/* TODO: <A>@@() &0& #0# =Adding filter function for rooms= */})
+        {/* TODO: <A>@@() &0& #0# =add singgle page Airbnb your home= */}
+        {/* TODO: <B>@@() &0& #0# =add footer content and corresponding contents= */}
+        {/* TODO: <A>@@() &0& #0# =adding user login functions= */}
+        {/* // TODO: <B>@@() &0& #0# =host backend with a free service or using json-server= */}
+        {/* TODO: <B>@@() &0& #0# =set link in profile= */}
       </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div>
-      <div className="justify-between">
-        {/* icons */}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-        </svg>
-        {/* name */}
-        <p>
-          Rooms
-        </p>
-      </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
-export default Navigator
+export default Navigator;
+
+const categoryfilters = [
+  {
+    Icon: CancelSharp,
+    name: "Amazing pools",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Cabins",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Beach",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Design",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Countryside",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Ski-in/out",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Beachfront",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Dammusi",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Barns",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Truli",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Grand pianos",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Containers",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Boats",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Nationalparks",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Riads",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Off-the-grid",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Towers",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Ryokans",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Caves",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Domes",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Windmills",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Islands",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Arctic",
+  },
+  {
+    Icon: CancelSharp,
+    name: "New",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Farms",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Earth homes",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Castles",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Treehouses",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Lake",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Tropical",
+  },
+  {
+    Icon: CancelSharp,
+    name: "Lakefront",
+  },
+];
