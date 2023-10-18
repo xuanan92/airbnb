@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import RoomContent from "./features/rooms/RoomContent";
 import SingleRoom from "./features/rooms/SingleRoom";
+import AddRoom from "./features/rooms/AddRoom";
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<RoomContent />} />
           <Route path="rooms">
-            <Route path=":roomId">
+            <Route path="addroom">
+              <Route index element={<AddRoom />} />
+            </Route>
+            <Route path=":postId">
               <Route index element={<SingleRoom />} />
             </Route>
           </Route>

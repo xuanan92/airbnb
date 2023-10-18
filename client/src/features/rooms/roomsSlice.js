@@ -10,8 +10,8 @@ export const extenedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getRooms: builder.query({
       query: () => "/rooms",
-      transformResponse: (response) =>
-        roomsAdapter.setAll(initialState, response),
+      transformResponse: (responseData) =>
+        roomsAdapter.setAll(initialState, responseData),
       /* eslint-disable-next-line */
       provideTags: (result, error, arg) => [
         { type: "Rooms", id: "LIST" },
@@ -19,10 +19,10 @@ export const extenedApiSlice = apiSlice.injectEndpoints({
       ],
     }),
     addRoom: builder.mutation({
-      query: (room) => ({
+      query: (newRoom) => ({
         url: "/rooms",
         method: "POST",
-        body: room,
+        body: newRoom,
       }),
       invalidateTags: [{ type: "Rooms", id: "LIST" }],
     }),

@@ -2,8 +2,10 @@ import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import Rooms from "./models/Rooms.js";
+import https from "node:https";
+import fs from "node:fs";
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5005;
 
 const app = express();
 
@@ -24,7 +26,21 @@ app.get("/", async (req, res) => {
     .then((rooms) => res.json(rooms))
     .catch((err) => console.log(err));
 });
+app.post("/rooms", async (req, res) => {
+  const room = req.body;
+  await Rooms.create(room)
+    .then((newRoom) => res.status(200).json(newRoom))
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ message: "Error creating room" });
+    });
+});
 
-app.listen(port, () => {
+const options = {
+  key: fs.readFileSync("server.key"),
+  cert: fs.readFileSync("server.cert"),
+};
+
+https.createServer(options, app).listen(port, () => {
   console.log(`listening on port ${port}`);
 });
