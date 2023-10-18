@@ -40,8 +40,8 @@ app.post("/rooms", async (req, res) => {
 });
 
 const options = {
-  key: fs.readFileSync("server.key"),
-  cert: fs.readFileSync("server.cert"),
+  key: fs.readFileSync("local.key"),
+  cert: fs.readFileSync("local.cert"),
 };
 
 https.createServer(options, app).listen(port, () => {
