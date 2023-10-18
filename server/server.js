@@ -21,10 +21,13 @@ mongoose.connect(
   },
 );
 
-app.get("/", async (req, res) => {
+app.get("/rooms", async (req, res) => {
   await Rooms.find()
-    .then((rooms) => res.json(rooms))
-    .catch((err) => console.log(err));
+    .then((rooms) => res.status(200).json(rooms))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ messsage: "fetching error" });
+    });
 });
 app.post("/rooms", async (req, res) => {
   const room = req.body;

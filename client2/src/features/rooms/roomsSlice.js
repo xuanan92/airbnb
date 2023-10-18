@@ -9,7 +9,7 @@ const initialState = roomsAdapter.getInitialState();
 export const extenedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getRooms: builder.query({
-      query: () => "/rooms",
+      query: () => "/api/rooms",
       transformResponse: (responseData) =>
         roomsAdapter.setAll(initialState, responseData),
       /* eslint-disable-next-line */
@@ -20,7 +20,7 @@ export const extenedApiSlice = apiSlice.injectEndpoints({
     }),
     addRoom: builder.mutation({
       query: (newRoom) => ({
-        url: "/rooms",
+        url: "/api/rooms",
         method: "POST",
         body: newRoom,
       }),

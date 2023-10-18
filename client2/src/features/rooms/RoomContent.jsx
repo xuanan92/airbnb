@@ -8,7 +8,7 @@ const RoomContent = () => {
     isSuccess,
     isError,
     error,
-  } = useGetRoomsQuery("LIST");
+  } = useGetRoomsQuery();
   let content;
   if (isLoading) {
     content = <p>Loading...</p>;
