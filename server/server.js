@@ -7,7 +7,7 @@ import fs from "node:fs";
 
 const port = process.env.PORT || 5005;
 
-const app = express();
+let app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -39,11 +39,12 @@ app.post("/rooms", async (req, res) => {
     });
 });
 
-const options = {
-  key: fs.readFileSync("local.key"),
-  cert: fs.readFileSync("local.cert"),
-};
+// disable for non certified http server
+// app = https.createServer(
+//   { key: fs.readFileSync("local.key"), cert: fs.readFileSync("local.cert") },
+//   app,
+// );
 
-https.createServer(options, app).listen(port, () => {
+app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

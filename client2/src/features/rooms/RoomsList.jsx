@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import RoomExcerpt from "./RoomExcerpt";
 import { useGetRoomsQuery } from "./roomsSlice";
-const RoomContent = () => {
+const RoomsList = () => {
   const {
     data: roomIds,
     isLoading,
@@ -32,5 +32,5 @@ const RoomContent = () => {
   );
 };
 
-export default RoomContent;
+export default RoomsList;
 // TODO: <>{}() &0& #0# == Adding data to mongoose db by using add room function and asyncronous network
