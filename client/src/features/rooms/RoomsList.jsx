@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import RoomExcerpt from "./RoomExcerpt";
 import { useGetRoomsQuery } from "./roomsSlice";
 const RoomsList = () => {
@@ -21,12 +20,7 @@ const RoomsList = () => {
   }
   return (
     <div>
-      <h1>Room List</h1>
-      <button>
-        <Link to="/rooms/addroom" className="btn btn-primary">
-          Add Room
-        </Link>
-      </button>
+      <h1 className="text-center">Room List</h1>
       <div className="flex flex-wrap gap-4 justify-center">{content}</div>
     </div>
   );
