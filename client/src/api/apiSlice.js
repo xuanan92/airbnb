@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl_local = "http://localhost:5005/";
-const baseUrl_public = "https://103.216.113.219:5005/";
+const baseUrl_local = "http://localhost:5005/api";
+const baseUrl_public = "https://103.216.113.219:5005/api";
 let baseUrl;
 /* eslint-disable-next-line */
 if (process.env.NODE_ENV === "production") {
