@@ -21,7 +21,7 @@ mongoose.connect(
   },
 );
 
-app.get("/rooms", async (req, res) => {
+app.get("/api/rooms", async (req, res) => {
   await Rooms.find()
     .then((rooms) => res.status(200).json(rooms))
     .catch((err) => {
@@ -29,7 +29,7 @@ app.get("/rooms", async (req, res) => {
       res.status(500).json({ messsage: "fetching error" });
     });
 });
-app.post("/rooms", async (req, res) => {
+app.post("/api/rooms", async (req, res) => {
   const room = req.body;
   await Rooms.create(room)
     .then((newRoom) => res.status(200).json(newRoom))
