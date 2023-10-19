@@ -7,19 +7,13 @@ const RoomExcerpt = ({ roomId }) => {
       isLoading,
     }),
   });
-  if (!isLoading) {
-    return (
-      <div>
-        <h3>{room.location}</h3>
-      </div>
-    );
+  if (isLoading) {
+    return <div> ...Loading </div>;
   }
-
-  return (
-    <div>
-      <h3>No post found</h3>
-    </div>
-  );
+  if (!room) {
+    <div>No room found</div>;
+  }
+  return <div>{room.location}</div>;
 };
 
 export default RoomExcerpt;

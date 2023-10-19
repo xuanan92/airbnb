@@ -40,10 +40,10 @@ app.post("/api/rooms", async (req, res) => {
 });
 
 // disable for non certified http server
-// app = https.createServer(
-//   { key: fs.readFileSync("local.key"), cert: fs.readFileSync("local.cert") },
-//   app,
-// );
+app = https.createServer(
+  { key: fs.readFileSync("local.key"), cert: fs.readFileSync("local.cert") },
+  app,
+);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
