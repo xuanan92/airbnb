@@ -2,10 +2,8 @@ import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import Rooms from "./models/Rooms.js";
-import https from "node:https";
-import fs from "node:fs";
 
-const port = process.env.PORT || 5005;
+const port = process.env.PORT || 3000;
 
 let app = express();
 
@@ -40,10 +38,6 @@ app.post("/api/rooms", async (req, res) => {
 });
 
 // disable for non certified http server
-app = https.createServer(
-  { key: fs.readFileSync("local.key"), cert: fs.readFileSync("local.cert") },
-  app,
-);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

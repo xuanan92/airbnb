@@ -13,7 +13,11 @@ const RoomExcerpt = ({ roomId }) => {
   if (!room) {
     <div>No room found</div>;
   }
-  return <div>{room.location}</div>;
+  return (
+    <div>
+      <p>{room.location}</p>
+    </div>
+  );
 };
 
 export default RoomExcerpt;
