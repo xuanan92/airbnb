@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAddRoomMutation } from "./roomsSlice";
 import { useNavigate } from "react-router-dom";
-const AddRoom = () => {
+const EditRoom = () => {
   const [addRoom, { isLoading }] = useAddRoomMutation();
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState(0);
@@ -68,4 +68,4 @@ const AddRoom = () => {
   );
 };
 
-export default AddRoom;
+export default EditRoom;

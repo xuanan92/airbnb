@@ -1,5 +1,7 @@
-import PropTypes from "prop-types";
 import { useGetRoomsQuery } from "./roomsSlice";
+import PropTypes from "prop-types";
+import { Link } from "@mui/material";
+
 const RoomExcerpt = ({ roomId }) => {
   const { room, isLoading } = useGetRoomsQuery(undefined, {
     selectFromResult: ({ data, isLoading }) => ({
@@ -13,9 +15,29 @@ const RoomExcerpt = ({ roomId }) => {
   if (!room) {
     <div>No room found</div>;
   }
+
   return (
-    <div>
+    <div className="flex flex-col gap-2 p-2 rounded-lg bg-slate-200">
+      <div className="w-80">
+        <img
+          className="object-cover w-full object center"
+          src={room.imgUrl}
+          alt={room.owner}
+        />
+      </div>
+      <div className="flex">
+        <p>
+          <b>{room.location}</b>
+        </p>
+        <p>{room.rating}</p>
+      </div>
       <p>{room.location}</p>
+      <p>{room.date.substring(0, 10)}...</p>
+      <p>{room.price}</p>
+      {/*  TODO: <>@@() &0& #0# =add delete button will show when logged in= */}
+      <button className="p-1 px-2 text-white bg-green-300 rounded-md">
+        <Link to={`/rooms/${roomId}/edit`}>Edit</Link>
+      </button>
     </div>
   );
 };
@@ -23,5 +45,5 @@ const RoomExcerpt = ({ roomId }) => {
 export default RoomExcerpt;
 
 RoomExcerpt.propTypes = {
-  roomId: PropTypes.object.isRequired,
+  roomId: PropTypes.string.isRequired,
 };

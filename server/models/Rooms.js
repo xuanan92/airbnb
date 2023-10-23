@@ -21,6 +21,9 @@ const roomsSchema = new Schema({
     type: Number,
     default: 0,
   },
+  imgUrl: {
+    type: String,
+  },
 });
 
 const Rooms = model("Rooms", roomsSchema);

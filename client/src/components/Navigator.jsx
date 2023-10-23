@@ -4,13 +4,15 @@ import {
   KeyboardArrowRight,
 } from "@mui/icons-material";
 import IconRoom from "./IconRoom";
+import Toggle from "./Toggle";
 
 const Navigator = () => {
+  const handleToggle = () => {};
   return (
     <div className="flex flex-row-reverse gap-4 items-center py-4 px-16">
       <div className="flex">
         <p className="whitespace-nowrap">Display total before taxes</p>
-        <p>switchOnButton</p>
+        <Toggle toggleChange={handleToggle} />
       </div>
       <div>
         <p>Filters</p>

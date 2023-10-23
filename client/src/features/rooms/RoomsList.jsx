@@ -18,13 +18,9 @@ const RoomsList = () => {
   } else if (isError) {
     content = <div>{error}</div>;
   }
-  return (
-    <div>
-      <h1 className="text-center">Room List</h1>
-      <div className="flex flex-wrap gap-4 justify-center">{content}</div>
-    </div>
-  );
+  return <div className="flex flex-wrap gap-4 justify-center">{content}</div>;
 };
 
 export default RoomsList;
 // TODO: <>{}() &0& #0# == Adding data to mongoose db by using add room function and asyncronous network
+//

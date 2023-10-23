@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import Rooms from "./models/Rooms.js";
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5005;
 
 let app = express();
 
@@ -34,6 +34,16 @@ app.post("/api/rooms", async (req, res) => {
     .catch((error) => {
       console.error(error);
       res.status(500).json({ message: "Error creating room" });
+    });
+});
+app.post("api/rooms", async (req, res) => {
+  const { id } = req.body;
+  await Rooms.findByIdAndDelete(id);
+  await Rooms.find()
+    .then(() => res.status(200).json())
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send({ message: "Error creating room" });
     });
 });
 
