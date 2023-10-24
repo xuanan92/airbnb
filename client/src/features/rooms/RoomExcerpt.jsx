@@ -1,6 +1,7 @@
+import { Link } from "@mui/material";
 import { useGetRoomsQuery } from "./roomsSlice";
 import PropTypes from "prop-types";
-import { Link } from "@mui/material";
+import { StarRate } from "@mui/icons-material";
 
 const RoomExcerpt = ({ roomId }) => {
   const { room, isLoading } = useGetRoomsQuery(undefined, {
@@ -25,19 +26,22 @@ const RoomExcerpt = ({ roomId }) => {
           alt={room.owner}
         />
       </div>
-      <div className="flex">
+      <div className="flex justify-between items-center">
         <p>
-          <b>{room.location}</b>
+          <h5>{room.location}</h5>
         </p>
-        <p>{room.rating}</p>
+        <div className="flex items-center">
+          <StarRate className="text-xl" />
+          <p>{room.rating}</p>
+        </div>
       </div>
-      <p>{room.location}</p>
       <p>{room.date.substring(0, 10)}...</p>
       <p>{room.price}</p>
       {/*  TODO: <>@@() &0& #0# =add delete button will show when logged in= */}
-      <button className="p-1 px-2 text-white bg-green-300 rounded-md">
-        <Link to={`/rooms/${roomId}/edit`}>Edit</Link>
-      </button>
+      {/*  TODO: <>@@() &0& #0# =add edit button will show when logged in= */}
+      <Link to={`/rooms/${roomId}`} className="p-2">
+        <button type="button">View Details</button>
+      </Link>
     </div>
   );
 };

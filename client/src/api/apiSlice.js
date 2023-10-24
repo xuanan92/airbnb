@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // const baseUrl = "https://airbnbtweak.cyclic.app/";
 let baseUrl;
+/*eslint-disable*/
 if (process.env.NODE_ENV === "production") {
   baseUrl = "https://airbnbtweak.cyclic.app/";
 } else {

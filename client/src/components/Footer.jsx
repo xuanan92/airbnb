@@ -90,7 +90,7 @@ const Footer = () => {
       break;
   }
   return (
-    <div className="m-auto w-full bg-gray-200">
+    <div className="m-auto w-full bg-gray-100">
       {/* <Inspiration for future getaways /> */}
       {/* <Tabs /> */}
       {/* <Tabs sub /> */}
@@ -386,74 +386,75 @@ const arts = [
 ];
 const outdoors = [
   {
-    getawayTitle: "Canmore",
-    getawaySub: "Chatlet rentals",
+    getawayTitle: "Lake Martin",
+    getawaySub: "Pet-friendly rentals",
   },
   {
-    getawayTitle: "Benlmadena",
-    getawaySub: "Apartment rentals",
-  },
-  {
-    getawayTitle: "Marbella",
-    getawaySub: "Cottage rentals",
-  },
-  {
-    getawayTitle: "Mijas",
+    getawayTitle: "Banff",
     getawaySub: "House rentals",
   },
   {
-    getawayTitle: "Prescott",
+    getawayTitle: "Nerja",
+    getawaySub: "Villa rentals",
+  },
+  {
+    getawayTitle: "Greer",
     getawaySub: "Cabin rentals",
   },
   {
-    getawayTitle: "Scottsdale",
-    getawaySub: "Rentals with pools",
-  },
-  {
-    getawayTitle: "Tucson",
-    getawaySub: "Mansion rentals",
-  },
-  {
-    getawayTitle: "Jasper",
+    getawayTitle: "Lake Havasu City",
     getawaySub: "Vacation rentals",
   },
   {
-    getawayTitle: "Mountain View",
+    getawayTitle: "Lake Powell",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "North Rim",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Payson",
+    getawaySub: "Cabin rentals",
+  },
+  {
+    getawayTitle: "Pinetop-Lakeside",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Red Rock",
+    getawaySub: "Cabin rentals",
+  },
+  {
+    getawayTitle: "Dinner Plain",
+    getawaySub: "Pet-friendly rentals",
+  },
+  {
+    getawayTitle: "Streaky Bay",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Emerald Lake",
+    getawaySub: "Cabin rentals",
+  },
+  {
+    getawayTitle: "Vancouver Island",
+    getawaySub: "Cabin rentals",
+  },
+  {
+    getawayTitle: "Victoria",
     getawaySub: "House rentals",
   },
   {
-    getawayTitle: "Devonport",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Idyllwild-Pine Cove",
+    getawaySub: "House rentals",
   },
   {
-    getawayTitle: "Mallacoota",
-    getawaySub: "Beach house rentals",
-  },
-  {
-    getawayTitle: "Ibiza",
-    getawaySub: "Apartment rentals",
-  },
-  {
-    getawayTitle: "Anaheim",
-    getawaySub: "Family-friendly rentals",
-  },
-  {
-    getawayTitle: "Monterey",
-    getawaySub: "Cabin rentals",
-  },
-  {
-    getawayTitle: "Paso Robles",
+    getawayTitle: "Mammoth Lakes",
     getawaySub: "Vacation rentals",
-  },
-  {
-    getawayTitle: "Santa Barbara",
-    getawaySub: "Cottage rentals",
-  },
-  {
-    getawayTitle: "Sonoma",
-    getawaySub: "Cottage rentals",
   },
 ];
+// TODO: <A>@@() &0& #0# =add static web data=
 const mountains = [
   {
     getawayTitle: "Canmore",

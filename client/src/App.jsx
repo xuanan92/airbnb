@@ -17,13 +17,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<RoomsList />} />
+
           <Route path="rooms">
             <Route index element={<RoomsList />} />
+
             <Route path="addroom">
               <Route index element={<AddRoom />} />
             </Route>
-            <Route path=":postId">
+
+            <Route path=":roomId">
               <Route index element={<SingleRoom />} />
+
               <Route path="edit" element={<EditRoom />} />
             </Route>
           </Route>

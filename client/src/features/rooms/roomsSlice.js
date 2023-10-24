@@ -6,12 +6,12 @@ export const roomsAdapter = createEntityAdapter({
 
 const initialState = roomsAdapter.getInitialState({});
 
-export const extenedApiSlice = apiSlice.injectEndpoints({
+export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getRooms: builder.query({
       query: () => "/api/rooms",
       transformResponse: (responseData) => {
-        return roomsAdapter.setAll(initialState, responseData);
+        return roomsAdapter.upsertMany(initialState, responseData);
       },
       /* eslint-disable-next-line */
       provideTags: (result, error, arg) => [
@@ -39,4 +39,4 @@ export const extenedApiSlice = apiSlice.injectEndpoints({
 });
 
 export const { useGetRoomsQuery, useAddRoomMutation, useDeleteRoomMutation } =
-  extenedApiSlice;
+  extendedApiSlice;
