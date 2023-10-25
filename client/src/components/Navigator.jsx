@@ -82,14 +82,14 @@ const Navigator = () => {
       {/* TODO: <context level>@time@(resource) &0& #0# =action= */}
       {/* TODO: <A>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
       {/* TODO: <A>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
-      {/*  TODO: <A>@@() &0& #0# =adding search function in details <time consuming>= */}
+      {/* TODO: <A>@@() &0& #0# =adding search function in details <time consuming>= */}
       {/* TODO: <A>@@() &0& #0# =Adding filter function for rooms= */})
       {/* TODO: <A>@@() &0& #0# =add singgle page Airbnb your home= */}
       {/* TODO: <B>@@() &0& #0# =add footer content and corresponding contents= */}
       {/* TODO: <A>@@() &0& #0# =adding user login functions= */}
-      {/* // TODO: <B>@@( &0& #0# =host backend with a free service or using json-server= */}
+      {/* TODO: <B>@@() &0& #0# =host backend with a free service or using json-server= */}
       {/* TODO: <B>@@() &0& #0# =set link in profile= */}
-      {/* // TODO: <>@@() &0& #0# =pause here= */}
+      {/* TODO: <>@@() &0& #0# =pause here= */}
     </div>
   );
 };
