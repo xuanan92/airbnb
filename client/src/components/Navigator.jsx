@@ -18,6 +18,7 @@ import {
   Plumbing,
   Pool,
   Terrain,
+  Tune,
   Vrpano,
   Waves,
 } from "@mui/icons-material";
@@ -28,48 +29,54 @@ import { useRef } from "react";
 
 const Navigator = () => {
   const ref = useRef(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  let [count, setCount] = useState(0);
   const clickLeft = () => {
-    ref.current.scrollLeft -= ref.current.clientWidth;
-    setScrollPosition(ref.current.scrollLeft);
+    ref.current.scrollLeft = ref.current.scrollLeft - ref.current.clientWidth;
+    setCount(count--);
   };
   const clickRight = () => {
-    ref.current.scrollLeft += ref.current.clientWidth;
-    setScrollPosition(ref.current.scrollLeft);
+    ref.current.scrollLeft = ref.current.scrollLeft + ref.current.clientWidth;
+    setCount(count++);
   };
+
   const handleToggle = () => {};
   return (
     <div className="flex flex-row-reverse gap-4 items-center py-4 px-16">
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center p-4 font-medium rounded-xl border">
         <p className="whitespace-nowrap">Display total before taxes</p>
         <Toggle toggleChange={handleToggle} />
       </div>
-      <div>
+      <div className="flex gap-2 items-center p-4 text-black rounded-xl border">
+        <Tune />
         <p>Filters</p>
       </div>
-      <div
-        ref={ref}
-        className="flex overflow-x-scroll flex-auto items-center scroll-smooth"
-      >
-        <button
-          type="button"
-          onClick={clickLeft}
-          className="p-1 bg-gray-100 rounded-full border"
+      <div className="flex relative flex-auto items-center">
+        <div className="flex absolute flex-auto justify-between items-center w-full">
+          <button
+            type="button"
+            onClick={clickLeft}
+            className="overscroll-y-contain p-1 bg-white rounded-full border hover:shadow-lg hover:scale-125"
+          >
+            <KeyboardArrowLeft />
+          </button>
+
+          <button
+            type="button"
+            onClick={clickRight}
+            className="p-1 bg-white rounded-full border hover:shadow-lg hover:scale-125"
+          >
+            <KeyboardArrowRight />
+          </button>
+        </div>
+        <div
+          ref={ref}
+          className="flex overflow-x-scroll flex-auto items-center w-0 scroll-smooth"
         >
-          <KeyboardArrowLeft />
-        </button>
-        {categoryfilters.map((item, index) => (
-          <IconRoom key={index} item={item} />
-        ))}
-        <button
-          type="button"
-          onClick={clickRight}
-          className="p-1 bg-gray-100 rounded-full border"
-        >
-          <KeyboardArrowRight />
-        </button>
+          {categoryfilters.map((item, index) => (
+            <IconRoom key={index} item={item} />
+          ))}
+        </div>
       </div>
-      <div className="flex absolute justify-between items-center w-full"></div>
       {/* TODO: <design>@15@(m) &0& #0# =Adding click function to left right button arrows= */}
       {/* TODO: <design>@@(l) &0& #0# =make area nearby button transparent= */}
       {/* TODO: <context level>@time@(resource) &0& #0# =action= */}
@@ -80,7 +87,7 @@ const Navigator = () => {
       {/* TODO: <A>@@() &0& #0# =add singgle page Airbnb your home= */}
       {/* TODO: <B>@@() &0& #0# =add footer content and corresponding contents= */}
       {/* TODO: <A>@@() &0& #0# =adding user login functions= */}
-      {/* // TODO: <B>@@() &0& #0# =host backend with a free service or using json-server= */}
+      {/* // TODO: <B>@@( &0& #0# =host backend with a free service or using json-server= */}
       {/* TODO: <B>@@() &0& #0# =set link in profile= */}
       {/* // TODO: <>@@() &0& #0# =pause here= */}
     </div>

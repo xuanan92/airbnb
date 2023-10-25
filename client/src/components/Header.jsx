@@ -29,14 +29,16 @@ const Header = () => {
         </div>
       </div>
       <div className="flex gap-6 items-center ml-auto">
-        <p>Airbnb your home</p>
+        <h4 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
+          Airbnb your home
+        </h4>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-6 h-6 font-semibold"
         >
           <path
             strokeLinecap="round"
@@ -45,7 +47,7 @@ const Header = () => {
           />
         </svg>
 
-        <div className="flex gap-2 items-center p-1 rounded-full border">
+        <div className="flex gap-4 items-center py-2 px-4 rounded-full border">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -60,7 +62,7 @@ const Header = () => {
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
           </svg>
-          <div className="overflow-hidden p-1 bg-gray-500 rounded-full border">
+          <div className="overflow-hidden gap-2 p-2 bg-gray-500 rounded-full border">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
