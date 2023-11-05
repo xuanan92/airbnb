@@ -27,6 +27,15 @@ app.get("/api/rooms", async (req, res) => {
       res.status(500).json({ messsage: "fetching error" });
     });
 });
+app.get("/api/rooms/:roomId", async (req, res) => {
+  const { roomId } = req.params;
+  await Rooms.findOneById(roomId)
+    .then((room) => res.status(200).json(room))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ messsage: "fetching error" });
+    });
+});
 app.post("/api/rooms", async (req, res) => {
   const room = req.body;
   await Rooms.create(room)
@@ -36,7 +45,7 @@ app.post("/api/rooms", async (req, res) => {
       res.status(500).json({ message: "Error creating room" });
     });
 });
-app.post("api/rooms", async (req, res) => {
+app.post("/api/rooms", async (req, res) => {
   const { id } = req.body;
   await Rooms.findByIdAndDelete(id);
   await Rooms.find()
@@ -46,8 +55,6 @@ app.post("api/rooms", async (req, res) => {
       res.status(500).send({ message: "Error creating room" });
     });
 });
-
-// disable for non certified http server
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

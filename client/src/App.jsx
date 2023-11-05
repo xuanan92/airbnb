@@ -10,17 +10,14 @@ function App() {
   // TODO: <>@@() &0& #0# =add more motel to the app=
   // TODO: <>@@() &0& #0# =add slide css to roomexcerpt=
   // TODO: <>@@() &0& #0# =create filter button => new modal filter created=
-  // TODO: <>@@() &0& #0# =adding display total before taxes button switch: by using absolute and left when disable to reposition On
   // TODO: <>@@() &0& #0# =Adding footer=
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<RoomsList />} />
-
           <Route path="rooms">
             <Route index element={<RoomsList />} />
-
             <Route path="addroom">
               <Route index element={<AddRoom />} />
             </Route>

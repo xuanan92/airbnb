@@ -1,29 +1,51 @@
 import {
+  Architecture,
+  AutoMode,
   Balcony,
   BeachAccess,
   BedroomParent,
   BlurCircular,
+  BrandingWatermark,
+  BreakfastDining,
   Business,
-  CancelSharp,
   Castle,
+  CellTower,
   CorporateFare,
   Cottage,
+  DirectionsBoat,
   Domain,
+  DownhillSkiing,
+  Forest,
+  Fort,
+  GridGoldenratio,
   HolidayVillage,
+  HouseSiding,
   Houseboat,
+  Kayaking,
   KeyboardArrowLeft,
   KeyboardArrowRight,
+  KeyboardDoubleArrowRightSharp,
+  Kitesurfing,
+  LocalPizza,
   LocationCity,
+  Mosque,
+  OilBarrel,
   Park,
+  Piano,
   Plumbing,
   Pool,
+  Sanitizer,
+  Sports,
+  TakeoutDining,
   Terrain,
   Tune,
   Vrpano,
+  WaterDamage,
   Waves,
+  WindPower,
 } from "@mui/icons-material";
 import IconRoom from "./IconRoom";
-import Toggle from "./Toggle";
+import ToggleButton from "./ToggleButton";
 import { useState } from "react";
 import { useRef } from "react";
 
@@ -38,58 +60,55 @@ const Navigator = () => {
     ref.current.scrollLeft = ref.current.scrollLeft + ref.current.clientWidth;
     setCount(count++);
   };
+  const [isToggle, setIsToggle] = useState(true);
 
-  const handleToggle = () => {};
+  const handleToggle = () => {
+    setIsToggle(!isToggle);
+  };
   return (
     <div className="flex flex-row-reverse gap-4 items-center py-4 px-16">
-      <div className="flex gap-2 items-center p-4 font-medium rounded-xl border">
-        <p className="whitespace-nowrap">Display total before taxes</p>
-        <Toggle toggleChange={handleToggle} />
-      </div>
-      <div className="flex gap-2 items-center p-4 text-black rounded-xl border">
+      <ToggleButton toggleChange={handleToggle} isToggle={isToggle}>
+        <h5 className="whitespace-nowrap">Display total before taxes</h5>
+      </ToggleButton>
+      <button className="flex gap-2 items-center p-4 text-black rounded-xl border">
         <Tune />
         <p>Filters</p>
-      </div>
+      </button>
       <div className="flex relative flex-auto items-center">
-        <div className="flex absolute flex-auto justify-between items-center w-full">
+        <div className="flex absolute flex-auto justify-between items-center w-full h-full">
           <button
             type="button"
             onClick={clickLeft}
-            className="overscroll-y-contain p-1 bg-white rounded-full border hover:shadow-lg hover:scale-125"
+            className="p-1 bg-gradient-to-r from-white from-0% w-20 h-full to-transperant flex items-center justify-start"
           >
-            <KeyboardArrowLeft />
+            <KeyboardArrowLeft className="rounded-full border hover:shadow-lg hover:scale-125 aspect-square" />
           </button>
 
           <button
             type="button"
             onClick={clickRight}
-            className="p-1 bg-white rounded-full border hover:shadow-lg hover:scale-125"
+            className="p-1 bg-gradient-to-l from-white from-0% w-20 h-full to-transperant flex items-center justify-end"
           >
-            <KeyboardArrowRight />
+            <KeyboardArrowRight className="rounded-full border hover:shadow-lg hover:scale-125 aspect-square" />
           </button>
         </div>
         <div
           ref={ref}
-          className="flex overflow-x-scroll flex-auto items-center w-0 scroll-smooth"
+          className="flex overflow-hidden flex-auto items-center w-0 scroll-smooth"
         >
-          {categoryfilters.map((item, index) => (
-            <IconRoom key={index} item={item} />
-          ))}
+          {categoryfilters.map((item, index) => {
+            return <IconRoom key={index} item={item} />;
+          })}
         </div>
       </div>
-      {/* TODO: <design>@15@(m) &0& #0# =Adding click function to left right button arrows= */}
-      {/* TODO: <design>@@(l) &0& #0# =make area nearby button transparent= */}
-      {/* TODO: <context level>@time@(resource) &0& #0# =action= */}
-      {/* TODO: <A>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
-      {/* TODO: <A>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
-      {/* TODO: <A>@@() &0& #0# =adding search function in details <time consuming>= */}
-      {/* TODO: <A>@@() &0& #0# =Adding filter function for rooms= */})
-      {/* TODO: <A>@@() &0& #0# =add singgle page Airbnb your home= */}
-      {/* TODO: <B>@@() &0& #0# =add footer content and corresponding contents= */}
-      {/* TODO: <A>@@() &0& #0# =adding user login functions= */}
-      {/* TODO: <B>@@() &0& #0# =host backend with a free service or using json-server= */}
-      {/* TODO: <B>@@() &0& #0# =set link in profile= */}
-      {/* TODO: <>@@() &0& #0# =pause here= */}
+      {/* TODO: <next>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
+      {/* TODO: <next>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
+      {/* TODO: <next>@@() &0& #0# =adding search function in details <time consuming>= */}
+      {/* TODO: <next>@@() &0& #0# =Adding filter function for rooms= */}
+      {/* TODO: <someday>@@() &0& #0# =add singgle page Airbnb your home= */}
+      {/* TODO: <next>@30@(l) &0& #0# =add footer content and corresponding linked contents to database= */}
+      {/* TODO: <someday>@@() &0& #0# =adding user login functions= */}
+      {/* TODO: <someday>@@() &0& #0# =set link in profile= */}
     </div>
   );
 };
@@ -174,107 +193,107 @@ const categoryfilters = [
     name: "Countryside",
   },
   {
-    Icon: CancelSharp,
+    Icon: DownhillSkiing,
     name: "Ski-in/out",
   },
   {
-    Icon: CancelSharp,
+    Icon: Kitesurfing,
     name: "Beachfront",
   },
   {
-    Icon: CancelSharp,
+    Icon: WaterDamage,
     name: "Dammusi",
   },
   {
-    Icon: CancelSharp,
+    Icon: OilBarrel,
     name: "Barns",
   },
   {
-    Icon: CancelSharp,
+    Icon: HouseSiding,
     name: "Truli",
   },
   {
-    Icon: CancelSharp,
+    Icon: Piano,
     name: "Grand pianos",
   },
   {
-    Icon: CancelSharp,
+    Icon: TakeoutDining,
     name: "Containers",
   },
   {
-    Icon: CancelSharp,
+    Icon: DirectionsBoat,
     name: "Boats",
   },
   {
-    Icon: CancelSharp,
+    Icon: Park,
     name: "Nationalparks",
   },
   {
-    Icon: CancelSharp,
+    Icon: Sanitizer,
     name: "Riads",
   },
   {
-    Icon: CancelSharp,
+    Icon: GridGoldenratio,
     name: "Off-the-grid",
   },
   {
-    Icon: CancelSharp,
+    Icon: CellTower,
     name: "Towers",
   },
   {
-    Icon: CancelSharp,
+    Icon: BrandingWatermark,
     name: "Ryokans",
   },
   {
-    Icon: CancelSharp,
+    Icon: Castle,
     name: "Caves",
   },
   {
-    Icon: CancelSharp,
+    Icon: KeyboardDoubleArrowRightSharp,
     name: "Domes",
   },
   {
-    Icon: CancelSharp,
+    Icon: WindPower,
     name: "Windmills",
   },
   {
-    Icon: CancelSharp,
+    Icon: Mosque,
     name: "Islands",
   },
   {
-    Icon: CancelSharp,
+    Icon: Architecture,
     name: "Arctic",
   },
   {
-    Icon: CancelSharp,
+    Icon: AutoMode,
     name: "New",
   },
   {
-    Icon: CancelSharp,
+    Icon: LocalPizza,
     name: "Farms",
   },
   {
-    Icon: CancelSharp,
+    Icon: BreakfastDining,
     name: "Earth homes",
   },
   {
-    Icon: CancelSharp,
+    Icon: Fort,
     name: "Castles",
   },
   {
-    Icon: CancelSharp,
+    Icon: Forest,
     name: "Treehouses",
   },
   {
-    Icon: CancelSharp,
+    Icon: Kayaking,
     name: "Lake",
   },
   {
-    Icon: CancelSharp,
+    Icon: Sports,
     name: "Tropical",
   },
   {
-    Icon: CancelSharp,
+    Icon: Cottage,
     name: "Lakefront",
   },
 ];

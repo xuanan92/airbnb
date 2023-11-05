@@ -7,6 +7,7 @@
   * {
     box-sizing: border-box;
   }
+
   html {
     font-family: Roboto;
     @apply m-0 p-0;
@@ -42,9 +43,6 @@
   h6 {
     @apply text-sm;
   }
-}
-
-@layer components {
 }
 
 @layer utilities {

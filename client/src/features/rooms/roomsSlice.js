@@ -4,12 +4,16 @@ export const roomsAdapter = createEntityAdapter({
   selectId: (room) => room._id,
 });
 
-const initialState = roomsAdapter.getInitialState({});
+const initialState = roomsAdapter.getInitialState({
+  room: [{ id: "100", location: "Dineye" }],
+  status: "idle",
+  error: null,
+});
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getRooms: builder.query({
-      query: () => "/api/rooms",
+      query: () => "/rooms",
       transformResponse: (responseData) => {
         return roomsAdapter.upsertMany(initialState, responseData);
       },
@@ -21,7 +25,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     }),
     addRoom: builder.mutation({
       query: (newRoom) => ({
-        url: "/api/rooms",
+        url: "/rooms",
         method: "POST",
         body: newRoom,
       }),
@@ -29,7 +33,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     }),
     deleteRoom: builder.mutation({
       query: ({ id }) => ({
-        url: `api/rooms`,
+        url: `/rooms`,
         method: "DELETE",
         body: { id },
       }),

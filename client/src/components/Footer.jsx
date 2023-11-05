@@ -97,8 +97,8 @@ const Footer = () => {
       <div className="py-8 text-center bg-white">
         <h4 className="py-4">Continue exploring tiny homes</h4>
         <button
+          className="p-4 text-xl font-bold text-center text-white bg-black rounded-lg"
           type="button"
-          className="py-2 px-4 font-bold text-white bg-black rounded-lg"
         >
           Show more
         </button>

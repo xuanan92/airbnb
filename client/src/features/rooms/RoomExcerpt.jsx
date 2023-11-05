@@ -1,7 +1,8 @@
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 import { useGetRoomsQuery } from "./roomsSlice";
 import PropTypes from "prop-types";
 import { StarRate } from "@mui/icons-material";
+import Grid from "@mui/material/Unstable_Grid2";
 
 const RoomExcerpt = ({ roomId }) => {
   const { room, isLoading } = useGetRoomsQuery(undefined, {
@@ -18,29 +19,37 @@ const RoomExcerpt = ({ roomId }) => {
   }
 
   return (
-    <div className="flex flex-col gap-2 p-2 rounded-lg bg-slate-200">
-      <div className="w-80">
-        <img
-          className="object-cover w-full object center"
-          src={room.imgUrl}
-          alt={room.owner}
-        />
-      </div>
-      <div className="flex justify-between items-center">
-        <p>
-          <h5>{room.location}</h5>
-        </p>
-        <div className="flex items-center">
-          <StarRate className="text-xl" />
-          <p>{room.rating}</p>
+    <div className="flex flex-col">
+      <Link to={`/rooms/${roomId}`}>
+        <div className="flex flex-col p-2 rounded-lg">
+          <div className="w-full">
+            <img
+              className="object-cover object-center w-full"
+              src={room.imgUrl}
+              alt={room.owner}
+            />
+          </div>
+          <div className="flex justify-between items-center pt-4 text-black">
+            <h4>{room.location}</h4>
+            <Grid container direction="row" alignitems="center">
+              <StarRate className="" />
+              <p className="text-xl">{room.rating}</p>
+            </Grid>
+          </div>
+          <p>
+            {room.date.substring(0, 10)}...
+            <br />
+            {room.owner}
+          </p>
+          <p className="text-black">
+            <span className="text-xl font-bold">
+              ${room.price.toLocaleString()}
+            </span>{" "}
+            night
+          </p>
+          {/*  TODO: <>@@() &0& #0# =add delete button will show when logged in= */}
+          {/*  TODO: <>@@() &0& #0# =add edit button will show when logged in= */}
         </div>
-      </div>
-      <p>{room.date.substring(0, 10)}...</p>
-      <p>{room.price}</p>
-      {/*  TODO: <>@@() &0& #0# =add delete button will show when logged in= */}
-      {/*  TODO: <>@@() &0& #0# =add edit button will show when logged in= */}
-      <Link to={`/rooms/${roomId}`} className="p-2">
-        <button type="button">View Details</button>
       </Link>
     </div>
   );
