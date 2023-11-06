@@ -7,10 +7,7 @@ const Avagroup = () => {
     setIsModalOpen(!isModalOpen);
   };
   return (
-    <div
-      className="flex relative gap-6 items-center ml-auto"
-      onClick={handleModalOpen}
-    >
+    <div className="flex relative gap-6 items-center ml-auto">
       <h4 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
         Airbnb your home
       </h4>
@@ -30,7 +27,10 @@ const Avagroup = () => {
       </svg>
 
       {/* avatar button */}
-      <button className="flex relative gap-4 items-center py-2 px-4 rounded-full border hover:shadow-lg hover:shadow-gray-300">
+      <button
+        className="flex relative gap-4 items-center py-2 px-4 rounded-full border hover:shadow-lg hover:shadow-gray-300"
+        onClick={handleModalOpen}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
