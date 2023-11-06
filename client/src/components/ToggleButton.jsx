@@ -7,11 +7,18 @@ const ToggleButton = ({ toggleChange, isToggle, children }) => {
       onClick={toggleChange}
     >
       <div>{children}</div>
-      <div className="flex relative items-center px-1 w-16 h-10 bg-gray-400 rounded-full">
+      <div
+        className={`flex items-center px-1 w-16 h-10 transition ease-in-out duration-400 rounded-full ${
+          isToggle ? "bg-black" : "bg-gray-300"
+        }`}
+      >
         <div
-          className={`border p-1 bg-white flex items-center justify-between w-8 aspect-square rounded-full transition-all duration-400 ${
-            isToggle ? "translate-x-6" : ""
+          className={`w-0 transition-all bg-transparent ${
+            isToggle ? "transition-all ease-in-out w-full" : ""
           }`}
+        ></div>
+        <div
+          className={`border p-1 bg-white flex items-center justify-between w-8 aspect-square rounded-full `}
         >
           {isToggle ? <Done /> : ""}
         </div>

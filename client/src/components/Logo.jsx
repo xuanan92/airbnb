@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 const Logo = () => {
   return (
-    <div className="flex items-center">
+    <Link to="/" className="flex items-center">
       <img className="h-8" src="/imgs/Airbnblogo.svg.png" alt="airbnb_logo" />
-    </div>
+    </Link>
   );
 };
 

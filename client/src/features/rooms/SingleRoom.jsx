@@ -45,7 +45,7 @@ const SingleRoom = () => {
         </div>
       </div>
       <div className="flex-auto">
-        <form className="sticky ml-auto w-2/3 rounded-xl shadow-md h-[500px]">
+        <form className="sticky ml-auto w-2/3 rounded-xl shadow-md h-[300px]">
           <div>$ night</div>
           <div>$ night</div>
           <div>$ night</div>

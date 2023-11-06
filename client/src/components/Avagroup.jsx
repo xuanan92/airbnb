@@ -1,6 +1,16 @@
+import Modal from "./Modal";
+import { useState } from "react";
+
 const Avagroup = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModalOpen = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
-    <div className="flex gap-6 items-center ml-auto">
+    <div
+      className="flex relative gap-6 items-center ml-auto"
+      onClick={handleModalOpen}
+    >
       <h4 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
         Airbnb your home
       </h4>
@@ -20,7 +30,7 @@ const Avagroup = () => {
       </svg>
 
       {/* avatar button */}
-      <button className="flex gap-4 items-center py-2 px-4 rounded-full border hover:shadow-lg hover:shadow-gray-300">
+      <button className="flex relative gap-4 items-center py-2 px-4 rounded-full border hover:shadow-lg hover:shadow-gray-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -50,6 +60,7 @@ const Avagroup = () => {
             />
           </svg>
         </div>
+        {isModalOpen && <Modal />}
       </button>
     </div>
   );

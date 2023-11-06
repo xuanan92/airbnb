@@ -66,7 +66,7 @@ const Navigator = () => {
     setIsToggle(!isToggle);
   };
   return (
-    <div className="flex flex-row-reverse gap-4 items-center py-4 px-16">
+    <div className="flex z-20 flex-row-reverse gap-4 items-center py-4 px-16">
       <ToggleButton toggleChange={handleToggle} isToggle={isToggle}>
         <h5 className="whitespace-nowrap">Display total before taxes</h5>
       </ToggleButton>
@@ -75,7 +75,7 @@ const Navigator = () => {
         <p>Filters</p>
       </button>
       <div className="flex relative flex-auto items-center">
-        <div className="flex absolute flex-auto justify-between items-center w-full h-full">
+        <div className="flex absolute inset-0 z-0 flex-auto order-1 justify-between items-center">
           <button
             type="button"
             onClick={clickLeft}
@@ -94,7 +94,7 @@ const Navigator = () => {
         </div>
         <div
           ref={ref}
-          className="flex overflow-hidden flex-auto items-center w-0 scroll-smooth"
+          className="flex overflow-hidden flex-auto order-2 items-center w-0 scroll-smooth"
         >
           {categoryfilters.map((item, index) => {
             return <IconRoom key={index} item={item} />;
