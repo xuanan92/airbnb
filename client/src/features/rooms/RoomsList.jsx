@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import RoomExcerpt from "./RoomExcerpt";
-import { useGetRoomsQuery } from "./roomsSlice";
+import { useGetRoomsQuery } from "./roomsApiSlice";
 
 const RoomsList = () => {
   const {

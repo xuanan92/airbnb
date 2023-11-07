@@ -1,4 +1,4 @@
-import { useGetRoomsQuery } from "./roomsSlice";
+import { useGetRoomsQuery } from "./roomsApiSlice";
 import { useParams } from "react-router-dom";
 
 const SingleRoom = () => {

@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import SignupForm from "./SignupForm";
+import Login from "../features/auth/Login";
+/* eslint-disable-next-line */
 const Modal = ({ handleModalClose }) => {
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const handleSignUp = () => {
     setIsSignUpOpen(!isSignUpOpen);
+  };
+  const handleLogin = () => {
+    setIsLoginOpen(!isLoginOpen);
   };
   return (
     <>
@@ -35,6 +41,7 @@ const Modal = ({ handleModalClose }) => {
         </ul>
       </div>
       {isSignUpOpen && <SignupForm handleSignUpClose={handleSignUp} />}
+      {isLoginOpen && <Login handleLoginClose={handleLogin} />}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAddRoomMutation } from "./roomsSlice";
+import { useAddRoomMutation } from "./roomsApiSlice";
 import { useNavigate } from "react-router-dom";
 const EditRoom = () => {
   const [addRoom, { isLoading }] = useAddRoomMutation();

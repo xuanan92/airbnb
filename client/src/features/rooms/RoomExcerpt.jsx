@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useGetRoomsQuery } from "./roomsSlice";
+import { useGetRoomsQuery } from "./roomsApiSlice";
 import PropTypes from "prop-types";
 import { StarRate } from "@mui/icons-material";
 import Grid from "@mui/material/Unstable_Grid2";
-
 const RoomExcerpt = ({ roomId }) => {
   const { room, isLoading } = useGetRoomsQuery(undefined, {
     selectFromResult: ({ data, isLoading }) => ({
