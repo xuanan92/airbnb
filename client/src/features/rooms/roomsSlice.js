@@ -2,11 +2,7 @@ import { createEntityAdapter } from "@reduxjs/toolkit";
 import { apiSlice } from "../../app/api/apiSlice";
 export const roomsAdapter = createEntityAdapter({});
 
-const initialState = roomsAdapter.getInitialState({
-  room: [{ id: "100", location: "Dineye" }],
-  status: "idle",
-  error: null,
-});
+const initialState = roomsAdapter.getInitialState();
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

@@ -1,16 +1,41 @@
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
-import Rooms from "./models/Rooms.js";
+import root from "./routes/root.js";
+import userRoutes from "./routes/userRoutes.js";
+import roomRoutes from "./routes/roomRoutes.js";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import corsOptions from "./config/corsOptions.js";
+import path from "path";
+
+dotenv.config();
 
 const port = process.env.PORT || 5005;
 
-let app = express();
+const app = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
+
+app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/", root);
+app.use("/rooms", roomRoutes);
+app.use("/users", userRoutes);
+
+app.all("*", (req, res) => {
+  res.status(404);
+  if (req.accepts("html")) {
+    res.sendFile(path.join(__dirname, "views", "404.html"));
+  } else if (req.accepts("json")) {
+    res.json({ message: "404 Not Found" });
+  } else {
+    res.type("txt").send("404 Not Found");
+  }
+});
+
 // TODO: <>{}() &0& #0# == create log middleware
-// db setup
 mongoose.connect(
   "mongodb+srv://nguyentruongxuananhn:superAnIT01!@cluster0.ytehc68.mongodb.net/Rooms?retryWrites=true&w=majority",
   {
@@ -18,43 +43,6 @@ mongoose.connect(
     useUnifiedTopology: true,
   },
 );
-
-app.get("/api/rooms", async (req, res) => {
-  await Rooms.find()
-    .then((rooms) => res.status(200).json(rooms))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ messsage: "fetching error" });
-    });
-});
-app.get("/api/rooms/:roomId", async (req, res) => {
-  const { roomId } = req.params;
-  await Rooms.findOneById(roomId)
-    .then((room) => res.status(200).json(room))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ messsage: "fetching error" });
-    });
-});
-app.post("/api/rooms", async (req, res) => {
-  const room = req.body;
-  await Rooms.create(room)
-    .then((newRoom) => res.status(200).json(newRoom))
-    .catch((error) => {
-      console.error(error);
-      res.status(500).json({ message: "Error creating room" });
-    });
-});
-app.post("/api/rooms/roomId", async (req, res) => {
-  const { roomId } = req.body;
-  await Rooms.findByIdAndDelete(roomId);
-  await Rooms.find()
-    .then(() => res.status(200).json())
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send({ message: "Error creating room" });
-    });
-});
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
