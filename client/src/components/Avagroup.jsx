@@ -4,13 +4,16 @@ import { useState } from "react";
 const Avagroup = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen(true);
+  };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
   };
   return (
-    <div className="flex relative gap-6 items-center ml-auto">
-      <h4 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
+    <div className="flex relative gap-2 items-center ml-auto">
+      <h6 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
         Airbnb your home
-      </h4>
+      </h6>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -60,8 +63,8 @@ const Avagroup = () => {
             />
           </svg>
         </div>
-        {isModalOpen && <Modal />}
       </button>
+      {isModalOpen && <Modal handleModalClose={handleModalClose} />}
     </div>
   );
 };

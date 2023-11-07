@@ -46,19 +46,28 @@ import {
 } from "@mui/icons-material";
 import IconRoom from "./IconRoom";
 import ToggleButton from "./ToggleButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 
 const Navigator = () => {
   const ref = useRef(null);
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
+  const [maxCount, setMaxCount] = useState(0);
+  useEffect(() => {
+    setMaxCount(Math.floor(ref.current.scrollWidth / ref.current.clientWidth));
+  }, [maxCount]);
   const clickLeft = () => {
     ref.current.scrollLeft = ref.current.scrollLeft - ref.current.clientWidth;
-    setCount(count--);
+    setCount((prev) => prev - 1);
+    if (count < 0) setCount(0);
   };
   const clickRight = () => {
     ref.current.scrollLeft = ref.current.scrollLeft + ref.current.clientWidth;
-    setCount(count++);
+    if (count >= maxCount) {
+      setCount(maxCount);
+    } else {
+      setCount((prev) => prev + 1);
+    }
   };
   const [isToggle, setIsToggle] = useState(true);
 
@@ -67,31 +76,35 @@ const Navigator = () => {
   };
   return (
     <div className="flex z-20 flex-row-reverse gap-4 items-center py-4 px-16">
-      <ToggleButton toggleChange={handleToggle} isToggle={isToggle}>
-        <h5 className="whitespace-nowrap">Display total before taxes</h5>
-      </ToggleButton>
-      <button className="flex gap-2 items-center p-4 text-black rounded-xl border">
-        <Tune />
-        <p>Filters</p>
-      </button>
+      {/* // TODO: <>@@() &0& #0# =add filter and filter taxes later= */}
+      {/* <ToggleButton toggleChange={handleToggle} isToggle={isToggle}> */}
+      {/*   <h5 className="whitespace-nowrap">Display total before taxes</h5> */}
+      {/* </ToggleButton> */}
+      {/* <button className="flex gap-2 items-center p-4 text-black rounded-xl border"> */}
+      {/*   <Tune /> */}
+      {/*   <p>Filters</p> */}
+      {/* </button> */}
       <div className="flex relative flex-auto items-center">
-        <div className="flex absolute inset-0 z-0 flex-auto order-1 justify-between items-center">
+        {count > 0 && (
           <button
             type="button"
             onClick={clickLeft}
-            className="p-1 bg-gradient-to-r from-white from-0% w-20 h-full to-transperant flex items-center justify-start"
+            className="absolute left-0 p-1 bg-gradient-to-r from-white from-0% w-20 h-full to-transperant flex items-center justify-start"
           >
             <KeyboardArrowLeft className="rounded-full border hover:shadow-lg hover:scale-125 aspect-square" />
           </button>
+        )}
 
+        {count < maxCount && (
           <button
             type="button"
             onClick={clickRight}
-            className="p-1 bg-gradient-to-l from-white from-0% w-20 h-full to-transperant flex items-center justify-end"
+            className="absolute right-0 p-1 bg-gradient-to-l from-white from-0% w-20 h-full to-transperant flex items-center justify-end"
           >
             <KeyboardArrowRight className="rounded-full border hover:shadow-lg hover:scale-125 aspect-square" />
           </button>
-        </div>
+        )}
+
         <div
           ref={ref}
           className="flex overflow-hidden flex-auto order-2 items-center w-0 scroll-smooth"

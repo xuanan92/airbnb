@@ -55,4 +55,15 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+  .animate-appear {
+    animation: appear 1s ease-in-out reverse;
+  }
+  @keyframes appear {
+    0% {
+      @apply scale-0;
+    }
+    100% {
+      @apply scale-100;
+    }
+  }
 }

@@ -45,9 +45,9 @@ app.post("/api/rooms", async (req, res) => {
       res.status(500).json({ message: "Error creating room" });
     });
 });
-app.post("/api/rooms", async (req, res) => {
-  const { id } = req.body;
-  await Rooms.findByIdAndDelete(id);
+app.post("/api/rooms/roomId", async (req, res) => {
+  const { roomId } = req.body;
+  await Rooms.findByIdAndDelete(roomId);
   await Rooms.find()
     .then(() => res.status(200).json())
     .catch((error) => {

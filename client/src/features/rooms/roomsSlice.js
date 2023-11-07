@@ -1,8 +1,6 @@
 import { createEntityAdapter } from "@reduxjs/toolkit";
-import { apiSlice } from "../../api/apiSlice";
-export const roomsAdapter = createEntityAdapter({
-  selectId: (room) => room._id,
-});
+import { apiSlice } from "../../app/api/apiSlice";
+export const roomsAdapter = createEntityAdapter({});
 
 const initialState = roomsAdapter.getInitialState({
   room: [{ id: "100", location: "Dineye" }],
@@ -15,7 +13,11 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     getRooms: builder.query({
       query: () => "/rooms",
       transformResponse: (responseData) => {
-        return roomsAdapter.upsertMany(initialState, responseData);
+        const loadedRooms = responseData.map((room) => {
+          room.id = room._id;
+          return room;
+        });
+        return roomsAdapter.setAll(initialState, loadedRooms);
       },
       /* eslint-disable-next-line */
       provideTags: (result, error, arg) => [

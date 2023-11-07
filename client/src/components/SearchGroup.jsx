@@ -1,7 +1,20 @@
+import { useState } from "react";
+import SearchModal from "./SearchModal";
+
 const SearchGroup = () => {
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const handleSearchModalOpen = () => {
+    setIsSearchModalOpen(!isSearchModalOpen);
+  };
+  const handleSearchModalClose = () => {
+    setIsSearchModalOpen(false);
+  };
   return (
     <>
-      <div className="flex justify-center items-center cursor-pointer">
+      <div
+        className="flex justify-center items-center cursor-pointer"
+        onClick={handleSearchModalOpen}
+      >
         <div className="flex gap-2 justify-between items-center p-2 px-8 rounded-full border shadow-sm text-md shadow-gray-400 hover:shadow-gray-500">
           <div className="text-black font-regular">Anywhere</div>
           <div className="">|</div>
@@ -24,6 +37,12 @@ const SearchGroup = () => {
           </div>
         </div>
       </div>
+      {isSearchModalOpen && (
+        <SearchModal
+          handleModalClose={handleSearchModalClose}
+          isSearchModal={isSearchModalOpen}
+        />
+      )}
     </>
   );
 };

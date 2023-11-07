@@ -31,7 +31,7 @@ const RoomExcerpt = ({ roomId }) => {
           </div>
           <div className="flex justify-between items-center pt-4 text-black">
             <h4>{room.location}</h4>
-            <Grid container direction="row" alignitems="center">
+            <Grid container direction="row" alignItems="center">
               <StarRate className="" />
               <p className="text-xl">{room.rating}</p>
             </Grid>

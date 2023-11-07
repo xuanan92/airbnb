@@ -91,9 +91,6 @@ const Footer = () => {
   }
   return (
     <div className="m-auto w-full bg-gray-100">
-      {/* <Inspiration for future getaways /> */}
-      {/* <Tabs /> */}
-      {/* <Tabs sub /> */}
       <div className="py-8 text-center bg-white">
         <h4 className="py-4">Continue exploring tiny homes</h4>
         <button
@@ -104,14 +101,14 @@ const Footer = () => {
         </button>
       </div>
       <div className="py-8 px-40">
-        <h3 className="font-medium text-black">
+        <h3 className="py-4 font-medium text-black">
           Inspiration for future getaways
         </h3>
-        <div className="flex gap-4 border-b border-b-gray-300">
+        <div className="flex gap-6 border-b border-b-gray-300">
           {/* TODO: <>@@() &0& #0# =add when click on below button show underline by css= */}
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="popular"
             onClick={handleClick}
           >
@@ -119,7 +116,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="arts"
             onClick={handleClick}
           >
@@ -127,7 +124,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="outdoors"
             onClick={handleClick}
           >
@@ -135,7 +132,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="mountains"
             onClick={handleClick}
           >
@@ -143,7 +140,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="beach"
             onClick={handleClick}
           >
@@ -151,7 +148,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="unique"
             onClick={handleClick}
           >
@@ -159,7 +156,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="categories"
             onClick={handleClick}
           >
@@ -167,7 +164,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="todo"
             onClick={handleClick}
           >
@@ -175,7 +172,7 @@ const Footer = () => {
           </button>
           <button
             type="button"
-            className="py-2"
+            className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
             id="friendly"
             onClick={handleClick}
           >
@@ -457,421 +454,409 @@ const outdoors = [
 // TODO: <A>@@() &0& #0# =add static web data=
 const mountains = [
   {
-    getawayTitle: "Canmore",
-    getawaySub: "Chatlet rentals",
-  },
-  {
-    getawayTitle: "Benlmadena",
-    getawaySub: "Apartment rentals",
-  },
-  {
-    getawayTitle: "Marbella",
-    getawaySub: "Cottage rentals",
-  },
-  {
-    getawayTitle: "Mijas",
-    getawaySub: "House rentals",
-  },
-  {
-    getawayTitle: "Prescott",
+    getawayTitle: "Mentone",
     getawaySub: "Cabin rentals",
   },
   {
-    getawayTitle: "Scottsdale",
-    getawaySub: "Rentals with pools",
+    getawayTitle: "Sedona",
+    getawaySub: "Villa rentals",
   },
   {
-    getawayTitle: "Tucson",
-    getawaySub: "Mansion rentals",
-  },
-  {
-    getawayTitle: "Jasper",
-    getawaySub: "Vacation rentals",
-  },
-  {
-    getawayTitle: "Mountain View",
+    getawayTitle: "Helen",
     getawaySub: "House rentals",
   },
   {
-    getawayTitle: "Devonport",
-    getawaySub: "Cottage rentals",
-  },
-  {
-    getawayTitle: "Mallacoota",
-    getawaySub: "Beach house rentals",
-  },
-  {
-    getawayTitle: "Ibiza",
-    getawaySub: "Apartment rentals",
-  },
-  {
-    getawayTitle: "Anaheim",
-    getawaySub: "Family-friendly rentals",
-  },
-  {
-    getawayTitle: "Monterey",
+    getawayTitle: "Pine Mountain",
     getawaySub: "Cabin rentals",
   },
   {
-    getawayTitle: "Paso Robles",
+    getawayTitle: "Stone Mountain",
+    getawaySub: "Cabin rentals",
+  },
+  {
+    getawayTitle: "Island Park",
+    getawaySub: "Apartment rentals",
+  },
+  {
+    getawayTitle: "Blue Mountains",
+    getawaySub: "Cottage rentals",
+  },
+  {
+    getawayTitle: "Asheville",
     getawaySub: "Vacation rentals",
   },
   {
-    getawayTitle: "Santa Barbara",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Blowing Rock",
+    getawaySub: "Vacation rentals",
   },
   {
-    getawayTitle: "Sonoma",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Boone",
+    getawaySub: "Vacation rentalsk",
+  },
+  {
+    getawayTitle: "Hochatown",
+    getawaySub: "Cabin rentals",
+  },
+  {
+    getawayTitle: "Pigeon Forge",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Townsend",
+    getawaySub: "Cabin rentals",
+  },
+  {
+    getawayTitle: "Wears Valley",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Cabins",
+    getawaySub: "Vacation rentals",
   },
 ];
 const beach = [
   {
-    getawayTitle: "Canmore",
-    getawaySub: "Chatlet rentals",
-  },
-  {
-    getawayTitle: "Benlmadena",
-    getawaySub: "Apartment rentals",
-  },
-  {
-    getawayTitle: "Marbella",
-    getawaySub: "Cottage rentals",
-  },
-  {
-    getawayTitle: "Mijas",
-    getawaySub: "House rentals",
-  },
-  {
-    getawayTitle: "Prescott",
-    getawaySub: "Cabin rentals",
-  },
-  {
-    getawayTitle: "Scottsdale",
+    getawayTitle: "Dauphin Island",
     getawaySub: "Rentals with pools",
   },
   {
-    getawayTitle: "Tucson",
-    getawaySub: "Mansion rentals",
-  },
-  {
-    getawayTitle: "Jasper",
-    getawaySub: "Vacation rentals",
-  },
-  {
-    getawayTitle: "Mountain View",
-    getawaySub: "House rentals",
-  },
-  {
-    getawayTitle: "Devonport",
-    getawaySub: "Cottage rentals",
-  },
-  {
-    getawayTitle: "Mallacoota",
+    getawayTitle: "Fort Morgan",
     getawaySub: "Beach house rentals",
   },
   {
-    getawayTitle: "Ibiza",
-    getawaySub: "Apartment rentals",
-  },
-  {
-    getawayTitle: "Anaheim",
-    getawaySub: "Family-friendly rentals",
-  },
-  {
-    getawayTitle: "Monterey",
-    getawaySub: "Cabin rentals",
-  },
-  {
-    getawayTitle: "Paso Robles",
+    getawayTitle: "Gold Shores",
     getawaySub: "Vacation rentals",
   },
   {
-    getawayTitle: "Santa Barbara",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Bruny Island",
+    getawaySub: "Vacation rentals",
   },
   {
-    getawayTitle: "Sonoma",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Crescent Head",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Gerringong",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Hamilton Island",
+    getawaySub: "House rentals",
+  },
+  {
+    getawayTitle: "Lancelin",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Melbourne Beach",
+    getawaySub: "Coltage rentals",
+  },
+  {
+    getawayTitle: "Moonta Bay",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Ocean Grove",
+    getawaySub: "House rentals",
+  },
+  {
+    getawayTitle: "Majorca",
+    getawaySub: "Rentals with pools",
+  },
+  {
+    getawayTitle: "Bif Sur",
+    getawaySub: "Pet-friendly rentals",
+  },
+  {
+    getawayTitle: "Bodega Bay",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Cambria",
+    getawaySub: "Beachfont rentals",
+  },
+  {
+    getawayTitle: "Cayucos",
+    getawaySub: "Vacation rentals",
+  },
+  {
+    getawayTitle: "Huntington Beach",
+    getawaySub: "Apartment rentals",
   },
 ];
 const unique = [
   {
-    getawayTitle: "Canmore",
-    getawaySub: "Chatlet rentals",
+    getawayTitle: "Cabins",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Benlmadena",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Treehouse",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Marbella",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Glamping",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Mijas",
-    getawaySub: "House rentals",
+    getawayTitle: "Tiny Houses",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Prescott",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Beach Houses",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Scottsdale",
-    getawaySub: "Rentals with pools",
+    getawayTitle: "Campers and RVs",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Tucson",
-    getawaySub: "Mansion rentals",
+    getawayTitle: "Lakehouses",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Jasper",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Yurt Rentals",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Mountain View",
-    getawaySub: "House rentals",
+    getawayTitle: "Yurt Rentals",
+    getawaySub: "United Kingdom",
   },
   {
-    getawayTitle: "Devonport",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Castle Rentals",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Mallacoota",
-    getawaySub: "Beach house rentals",
+    getawayTitle: "Houseboats",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Ibiza",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Holiday Caravans",
+    getawaySub: "United Kingdom",
   },
   {
-    getawayTitle: "Anaheim",
-    getawaySub: "Family-friendly rentals",
+    getawayTitle: "Private Island Rentals",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Monterey",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Farm Houses",
+    getawaySub: "United States",
   },
   {
-    getawayTitle: "Paso Robles",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Farm Cottages",
+    getawaySub: "United Kingdom",
   },
   {
-    getawayTitle: "Santa Barbara",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Cabin Rentals",
+    getawaySub: "Australia",
   },
   {
-    getawayTitle: "Sonoma",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Luxury Cabins",
+    getawaySub: "United Kingdom",
   },
 ];
 const categories = [
   {
-    getawayTitle: "Canmore",
-    getawaySub: "Chatlet rentals",
+    getawayTitle: "Amazing pools",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Benlmadena",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Arctic",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Marbella",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Camping",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Mijas",
-    getawaySub: "House rentals",
+    getawayTitle: "Campers",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Prescott",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Castles",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Scottsdale",
-    getawaySub: "Rentals with pools",
+    getawayTitle: "Containers",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Tucson",
-    getawaySub: "Mansion rentals",
+    getawayTitle: "Countryside",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Jasper",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Design",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Mountain View",
-    getawaySub: "House rentals",
+    getawayTitle: "Earth homes",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Devonport",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Farms",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Mallacoota",
-    getawaySub: "Beach house rentals",
+    getawayTitle: "National parks",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Ibiza",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Vineyards",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Anaheim",
-    getawaySub: "Family-friendly rentals",
+    getawayTitle: "OMG!",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Monterey",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Tiny homes",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Paso Robles",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Towers",
+    getawaySub: "",
   },
   {
-    getawayTitle: "Santa Barbara",
-    getawaySub: "Cottage rentals",
-  },
-  {
-    getawayTitle: "Sonoma",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Windmills",
+    getawaySub: "",
   },
 ];
 const todo = [
   {
-    getawayTitle: "Canmore",
-    getawaySub: "Chatlet rentals",
+    getawayTitle: "London",
+    getawaySub: "England",
   },
   {
-    getawayTitle: "Benlmadena",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Pairs",
+    getawaySub: "lie-de-France",
   },
   {
-    getawayTitle: "Marbella",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "New York",
+    getawaySub: "New York",
   },
   {
-    getawayTitle: "Mijas",
-    getawaySub: "House rentals",
+    getawayTitle: "Barcelona",
+    getawaySub: "Catalonia",
   },
   {
-    getawayTitle: "Prescott",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Istanbul",
+    getawaySub: "Istanbul",
   },
   {
-    getawayTitle: "Scottsdale",
-    getawaySub: "Rentals with pools",
+    getawayTitle: "Bali",
+    getawaySub: "Indonesia",
   },
   {
-    getawayTitle: "Tucson",
-    getawaySub: "Mansion rentals",
+    getawayTitle: "Amsterdam",
+    getawaySub: "North Holland",
   },
   {
-    getawayTitle: "Jasper",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Miami",
+    getawaySub: "Florida",
   },
   {
-    getawayTitle: "Mountain View",
-    getawaySub: "House rentals",
+    getawayTitle: "Madrid",
+    getawaySub: "Community of madrid",
   },
   {
-    getawayTitle: "Devonport",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Los Angeles",
+    getawaySub: "California",
   },
   {
-    getawayTitle: "Mallacoota",
-    getawaySub: "Beach house rentals",
+    getawayTitle: "Rome",
+    getawaySub: "Lazio",
   },
   {
-    getawayTitle: "Ibiza",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Lisbon",
+    getawaySub: "Lisbon",
   },
   {
-    getawayTitle: "Anaheim",
-    getawaySub: "Family-friendly rentals",
+    getawayTitle: "Tokyo",
+    getawaySub: "Tokyo",
   },
   {
-    getawayTitle: "Monterey",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Vienna",
+    getawaySub: "Vienna",
   },
   {
-    getawayTitle: "Paso Robles",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Athens",
+    getawaySub: "Greece",
   },
   {
-    getawayTitle: "Santa Barbara",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Prague",
+    getawaySub: "Czechia",
   },
   {
-    getawayTitle: "Sonoma",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Orlando",
+    getawaySub: "Florida",
   },
 ];
 const friendly = [
   {
-    getawayTitle: "Canmore",
-    getawaySub: "Chatlet rentals",
+    getawayTitle: "Palm Beach County",
+    getawaySub: "Florida",
   },
   {
-    getawayTitle: "Benlmadena",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Atlanta Metro",
+    getawaySub: "Georgia",
   },
   {
-    getawayTitle: "Marbella",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Augusta",
+    getawaySub: "Georgia",
   },
   {
-    getawayTitle: "Mijas",
-    getawaySub: "House rentals",
+    getawayTitle: "Austin metro",
+    getawaySub: "Texas",
   },
   {
-    getawayTitle: "Prescott",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Boston Metro",
+    getawaySub: "Massachusetts",
   },
   {
-    getawayTitle: "Scottsdale",
-    getawaySub: "Rentals with pools",
+    getawayTitle: "Charlotte",
+    getawaySub: "North Carolina",
   },
   {
-    getawayTitle: "Tucson",
-    getawaySub: "Mansion rentals",
+    getawayTitle: "Columbus",
+    getawaySub: "Ohio",
   },
   {
-    getawayTitle: "Jasper",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Dallas",
+    getawaySub: "Texas",
   },
   {
-    getawayTitle: "Mountain View",
-    getawaySub: "House rentals",
+    getawayTitle: "Denver",
+    getawaySub: "Colorado",
   },
   {
-    getawayTitle: "Devonport",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Gainesville",
+    getawaySub: "Florida",
   },
   {
-    getawayTitle: "Mallacoota",
-    getawaySub: "Beach house rentals",
+    getawayTitle: "Houston Metro",
+    getawaySub: "Texas",
   },
   {
-    getawayTitle: "Ibiza",
-    getawaySub: "Apartment rentals",
+    getawayTitle: "Indianapolis",
+    getawaySub: "Indiana",
   },
   {
-    getawayTitle: "Anaheim",
-    getawaySub: "Family-friendly rentals",
+    getawayTitle: "Jacksonville",
+    getawaySub: "Florida",
   },
   {
-    getawayTitle: "Monterey",
-    getawaySub: "Cabin rentals",
+    getawayTitle: "Los Angeles",
+    getawaySub: "California",
   },
   {
-    getawayTitle: "Paso Robles",
-    getawaySub: "Vacation rentals",
+    getawayTitle: "Miami",
+    getawaySub: "Florida",
   },
   {
-    getawayTitle: "Santa Barbara",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "Minnetonka",
+    getawaySub: "Minnesota",
   },
   {
-    getawayTitle: "Sonoma",
-    getawaySub: "Cottage rentals",
+    getawayTitle: "newport Beach",
+    getawaySub: "California",
   },
 ];
