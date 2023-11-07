@@ -6,7 +6,7 @@ import userRoutes from "./routes/userRoutes.js";
 import roomRoutes from "./routes/roomRoutes.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import corsOptions from "./config/corsOptions.js";
+// import corsOptions from "./config/corsOptions.js";
 import path from "path";
 
 dotenv.config();
@@ -15,7 +15,7 @@ const port = process.env.PORT || 5005;
 
 const app = express();
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
