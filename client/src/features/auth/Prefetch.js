@@ -1,5 +1,5 @@
 import { store } from "../../app/store";
-import { notesApiSlice } from "../notes/notesApiSlice";
+import { roomsApiSlice } from "../rooms/roomsApiSlice";
 import { usersApiSlice } from "../users/usersApiSlice";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 const Prefetch = () => {
   useEffect(() => {
     store.dispatch(
-      notesApiSlice.util.prefetch("getNotes", "notesList", { force: true }),
+      roomsApiSlice.util.prefetch("getRooms", "roomsList", { force: true }),
     );
     store.dispatch(
       usersApiSlice.util.prefetch("getUsers", "usersList", { force: true }),

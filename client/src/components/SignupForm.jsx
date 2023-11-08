@@ -7,13 +7,54 @@ import {
   PhoneAndroid,
 } from "@mui/icons-material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useAddUserMutation } from "../features/users/usersApiSlice";
+import { PulseLoader } from "react-spinners";
 
+/* eslint-disable */
 const SignupForm = ({ handleSignUpClose }) => {
+  const errRef = useRef();
+  const [addUser, { isLoading }] = useAddUserMutation();
+  const [errMes, setErrMes] = useState("");
+
   const [switchForm, setSwitchForm] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+  // TODO: <>@@() &0& #0# =error not showing message on submit form if failed=
+  // TODO: <>@@() &0& #0# =login doesnot have cookies=
+  // TODO: <>@@() &0& #0# =need to wrap prefetch for manual maintain connection=
   const handleSwitchForm = () => {
     setSwitchForm(!switchForm);
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await addUser({ email, password }).unwrap();
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      if (!err.status) {
+        setErrMes("No server response");
+      } else if (err.status === 400) {
+        setErrMes("Missing Email or Password");
+      } else if (err.status === 401) {
+        setErrMes("Users existed");
+      } else if (err.status === 402) {
+        setErrMes("Invalid user data received");
+      } else {
+        setErrMes(err.data?.message);
+      }
+      errRef.current.focus();
+    }
+  };
+  const errClass = errMes ? "errmsg" : "offscreen";
+  if (isLoading) return <PulseLoader color={"#FFF"} />;
   return (
     <>
       <div
@@ -23,17 +64,23 @@ const SignupForm = ({ handleSignUpClose }) => {
       <div
         className={`flex h-3/4 fixed inset-0 flex-col m-auto w-1/3 text-black bg-white rounded-xl z-[60]`}
       >
+        <p ref={errRef} className={errClass} aria-live="assertive">
+          {errMes}
+        </p>
         <Grid className="py-4" container direction="row" alignItems="center">
           <Close
             onClick={handleSignUpClose}
             className="absolute left-4 p-1 scale-125 hover:bg-gray-100 hover:rounded-full"
           />
-          <h4 className="w-full text-center">Log in or sign up</h4>
+          <h4 className="w-full text-center">Sign up</h4>
         </Grid>
         <hr />
         <div className="flex flex-col p-4">
           <h4 className="py-4">Welcome to Airbnb</h4>
-          <form className="flex flex-col gap-4 w-full h-auto">
+          <form
+            onSubmit={handleSubmit}
+            lassName="flex flex-col gap-4 w-full h-auto"
+          >
             {!switchForm && (
               <>
                 <div className="flex flex-col w-full rounded-lg border">
@@ -102,16 +149,20 @@ const SignupForm = ({ handleSignUpClose }) => {
                   type="text"
                   autoFocus
                   placeholder="Email"
+                  value={email}
+                  onChange={handleEmailChange}
                 />
                 <input
                   className="py-4 px-2 w-full rounded-lg border"
                   type="text"
                   placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
                 />
               </>
             )}
             <button
-              type="button"
+              type="submit"
               className="py-4 w-full text-white bg-red-600 rounded-lg border"
             >
               Continue

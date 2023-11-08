@@ -1,7 +1,10 @@
 import express from "express";
-import { getAllUsers } from "../controllers//usersController.js";
+import { createNewUser, getAllUsers } from "../controllers//usersController.js";
+// import verifyJWT from "../middleware/verifyJWT.js";
 
 const router = express.Router();
-router.route("/").get(getAllUsers);
+
+// router.use(verifyJWT);
+router.route("/").get(getAllUsers).post(createNewUser);
 
 export default router;

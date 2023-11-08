@@ -1,8 +1,12 @@
-const { logEvents } = require("./logger");
+import { logEvents } from "./logger";
+import { rateLimit } from "express-rate-limit";
 
 const loginLimiter = rateLimit({
+  // validate: { ip: false },
   windowMs: 60 * 1000, // 1 minute
   max: 5, // Limit each IP to 5 login requests per `window` per minute
+  // keyGenerator: (req, res) => req.ip,
+  validate: { ip: false },
   message: {
     message:
       "Too many login attempts from this IP, please try again after a 60 second pause",

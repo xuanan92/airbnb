@@ -25,7 +25,7 @@ const Modal = ({ handleModalClose }) => {
               Sign up
             </li>
           </div>
-          <div onClick={handleSignUp}>
+          <div onClick={handleLogin}>
             <li className="p-4 cursor-pointer hover:bg-gray-100">Log in</li>
           </div>
           <hr />
