@@ -22,7 +22,7 @@ const roomsSchema = new Schema({
     default: 0,
   },
   imgUrl: {
-    type: String,
+    type: Array,
   },
 });
 

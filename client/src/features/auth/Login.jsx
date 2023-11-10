@@ -12,9 +12,10 @@ import { useLoginMutation } from "./authApiSlice";
 import { setCredentials } from "./authSlice";
 import { useDispatch } from "react-redux";
 import PulseLoader from "react-spinners/PulseLoader";
-
+import { useNavigate } from "react-router-dom";
 /* eslint-disable-next-line */
 const Login = ({ handleLoginClose }) => {
+  const navigate = useNavigate();
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState("");
   const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ const Login = ({ handleLoginClose }) => {
       dispatch(setCredentials({ accessToken }));
       setEmail("");
       setPassword("");
-      handleLoginClose();
+      navigate("/dash");
     } catch (err) {
       if (!err.status) {
         setErrMsg("No Server Response");

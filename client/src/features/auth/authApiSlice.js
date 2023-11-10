@@ -7,7 +7,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
       query: (credentials) => ({
         url: "/auth",
         method: "POST",
-        body: { ...credentials },
+        body: credentials,
       }),
     }),
     sendLogout: builder.mutation({
@@ -31,7 +31,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
     refresh: builder.mutation({
       query: () => ({
         url: "/auth/refresh",
-        method: "GET",
+        method: "POST",
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {

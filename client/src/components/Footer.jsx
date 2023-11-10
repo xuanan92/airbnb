@@ -618,10 +618,6 @@ const unique = [
     getawaySub: "United States",
   },
   {
-    getawayTitle: "Yurt Rentals",
-    getawaySub: "United Kingdom",
-  },
-  {
     getawayTitle: "Castle Rentals",
     getawaySub: "United States",
   },

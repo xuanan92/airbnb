@@ -13,17 +13,18 @@ import corsOptions from "./config/corsOptions.js";
 import errorHandler from "./middleware/errorHandler.js";
 import connectDB from "./config/dbConn.js";
 import { logger, logEvents } from "./middleware/logger.js";
+const app = express();
+const port = process.env.PORT || 5005;
 
 console.log(process.env.NODE_ENV);
 
 connectDB();
 
-const port = process.env.PORT || 5005;
-
-const app = express();
 app.use(logger);
 app.use(cors(corsOptions));
+
 app.use(express.json());
+
 app.use(cookieParser());
 
 app.use("/", express.static(path.join(__dirname, "public")));
