@@ -105,7 +105,7 @@ const Footer = () => {
           Inspiration for future getaways
         </h3>
         <div className="flex gap-6 border-b border-b-gray-300">
-          {/* TODO: <>@@() &0& #0# =add when click on below button show underline by css= */}
+          {/* NOTE: <>@@() &0& #0# =add when click on below button show underline by css= */}
           <button
             type="button"
             className="py-2 border-b focus:text-black active:scale-90 focus:border-b-black"
@@ -180,7 +180,7 @@ const Footer = () => {
           </button>
         </div>
         <div className="grid grid-cols-6 gap-x-2 gap-y-4 pt-8">
-          {/* TODO: <>@@() &0& #0# =display 17 link items get aways and 1 show more= */}
+          {/* NOTE: <>@@() &0& #0# =display 17 link items get aways and 1 show more= */}
           {content}
         </div>
       </div>
@@ -451,7 +451,7 @@ const outdoors = [
     getawaySub: "Vacation rentals",
   },
 ];
-// TODO: <A>@@() &0& #0# =add static web data=
+// NOTE: <A>@@() &0& #0# =add static web data to database=
 const mountains = [
   {
     getawayTitle: "Mentone",

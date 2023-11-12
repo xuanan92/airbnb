@@ -76,7 +76,7 @@ const Navigator = () => {
   };
   return (
     <div className="flex z-20 flex-row-reverse gap-4 items-center py-4 px-16">
-      {/* // TODO: <>@@() &0& #0# =add filter and filter taxes later= */}
+      {/* // NOTE: <>@@() &0& #0# =add filter and filter taxes later= */}
       {/* <ToggleButton toggleChange={handleToggle} isToggle={isToggle}> */}
       {/*   <h5 className="whitespace-nowrap">Display total before taxes</h5> */}
       {/* </ToggleButton> */}
@@ -114,14 +114,16 @@ const Navigator = () => {
           })}
         </div>
       </div>
-      {/* TODO: <next>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
-      {/* TODO: <next>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
-      {/* TODO: <next>@@() &0& #0# =adding search function in details <time consuming>= */}
-      {/* TODO: <next>@@() &0& #0# =Adding filter function for rooms= */}
-      {/* TODO: <someday>@@() &0& #0# =add singgle page Airbnb your home= */}
-      {/* TODO: <next>@30@(l) &0& #0# =add footer content and corresponding linked contents to database= */}
-      {/* TODO: <someday>@@() &0& #0# =adding user login functions= */}
-      {/* TODO: <someday>@@() &0& #0# =set link in profile= */}
+      {/* HACK: <user account>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
+      {/* HACK: <search css>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
+      {/* HACK: <search>@@() &0& #0# =adding search function in details <time consuming>= */}
+      {/* HACK: <search>@@() &0& #0# =Adding filter function for rooms= */}
+      {/* // HACK: <user login>@@() &0& #0# =user login with protected route= */}
+      {/* // HACK: <user login>@@() &0& #0# =CREATE dashboard for user login= */}
+      
+      {/* NOTE: <next>@30@(l) &0& #0# =add footer content and corresponding linked contents to database= */}
+      {/* NOTE: <someday>@@() &0& #0# =adding user login functions= */}
+      {/* NOTE: <someday>@@() &0& #0# =set link in profile= */}
     </div>
   );
 };

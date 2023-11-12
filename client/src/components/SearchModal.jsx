@@ -26,7 +26,7 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
         className="grid fixed top-0 left-0 grid-cols-3 px-16 w-full h-24 bg-white z-[105] z-60 shadow-gray-200"
       >
         <Logo />
-        {/* TODO: <>@@() &0& #0# =update css here= */}
+        {/* WARN: <>@@() &0& #0# =update css here= */}
         <div className="flex flex-col gap-4 justify-center items-center">
           <div
             className={`${

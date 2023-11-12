@@ -79,8 +79,8 @@ const RoomExcerpt = ({ roomId }) => {
           </span>{" "}
           night
         </p>
-        {/*  TODO: <>@@() &0& #0# =add delete button will show when logged in= */}
-        {/*  TODO: <>@@() &0& #0# =add edit button will show when logged in= */}
+        {/*  WARN: <soon>@@() &0& #0# =add delete button will show after logged in= */}
+        {/*  WARN: <soon>@@() &0& #0# =add edit button will show after logged in= */}
       </Link>
     </div>
   );

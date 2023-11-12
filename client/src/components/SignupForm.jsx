@@ -26,9 +26,8 @@ const SignupForm = ({ handleSignUpClose }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  // TODO: <>@@() &0& #0# =error not showing message on submit form if failed=
-  // TODO: <>@@() &0& #0# =login doesnot have cookies=
-  // TODO: <>@@() &0& #0# =need to wrap prefetch for manual maintain connection=
+  // NOTE: <someday>@@() &0& #0# =add error message after isFailed form submission=
+  // HACK: <next prefetch>@@() &0& #0# =need to wrap prefetch for manual maintain connection=
   const handleSwitchForm = () => {
     setSwitchForm(!switchForm);
   };
