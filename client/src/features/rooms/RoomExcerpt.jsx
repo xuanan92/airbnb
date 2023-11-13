@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useGetRoomsQuery } from "./roomsApiSlice";
-import PropTypes from "prop-types";
 import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
@@ -9,6 +8,7 @@ import {
 import Grid from "@mui/material/Unstable_Grid2";
 import ImgSlide from "./ImgSlide";
 import { useRef } from "react";
+// eslint-disable-next-line
 const RoomExcerpt = ({ roomId }) => {
   const refImg = useRef(null);
   const { room, isLoading } = useGetRoomsQuery(undefined, {
@@ -39,9 +39,9 @@ const RoomExcerpt = ({ roomId }) => {
           ref={refImg}
           className="flex overflow-x-scroll flex-auto rounded-xl no-scrollbar scroll-smooth"
         >
-          {room.imgUrl.map((image, index) => (
+          {room.imgUrl.map((image) => (
             <>
-              <ImgSlide key={index} image={image} length={room.imgUrl.length} />
+              <ImgSlide key={image} image={image} length={room.imgUrl.length} />
             </>
           ))}
         </div>
@@ -87,7 +87,3 @@ const RoomExcerpt = ({ roomId }) => {
 };
 
 export default RoomExcerpt;
-
-RoomExcerpt.propTypes = {
-  roomId: PropTypes.string.isRequired,
-};

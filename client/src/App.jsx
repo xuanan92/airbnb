@@ -4,6 +4,7 @@ import RoomsList from "./features/rooms/RoomsList";
 import SingleRoom from "./features/rooms/SingleRoom";
 import AddRoom from "./features/rooms/AddRoom";
 import EditRoom from "./features/rooms/EditRoom";
+import Account from "./components/Account";
 
 function App() {
   // NOTE: <someday>@@() &0& #0# =change icon and css for filters scrollbar=
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<RoomsList />} />
+
           <Route path="rooms">
             <Route index element={<RoomsList />} />
             <Route path="addroom">
@@ -28,6 +30,8 @@ function App() {
               <Route path="edit" element={<EditRoom />} />
             </Route>
           </Route>
+
+          <Route path="account-settings" element={<Account />} />
         </Route>
       </Routes>
     </div>

@@ -177,7 +177,7 @@ const SignupForm = ({ handleSignUpClose }) => {
             </div>
           </div>
           <p className="text-xs italic">
-            Phone, Facebook, Google, and Apple is temporary not working
+            !!!Phone, Facebook, Google, and Apple is temporary not working
           </p>
           <div className="flex flex-col gap-4">
             <Grid

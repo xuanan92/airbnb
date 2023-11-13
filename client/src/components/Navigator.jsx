@@ -119,8 +119,8 @@ const Navigator = () => {
       {/* HACK: <search>@@() &0& #0# =adding search function in details <time consuming>= */}
       {/* HACK: <search>@@() &0& #0# =Adding filter function for rooms= */}
       {/* // HACK: <user login>@@() &0& #0# =user login with protected route= */}
-      {/* // HACK: <user login>@@() &0& #0# =CREATE dashboard for user login= */}
-      
+      {/* // HACK: <user login>@@() &0& #0# =After login successful will navigate to /dash= */}
+
       {/* NOTE: <next>@30@(l) &0& #0# =add footer content and corresponding linked contents to database= */}
       {/* NOTE: <someday>@@() &0& #0# =adding user login functions= */}
       {/* NOTE: <someday>@@() &0& #0# =set link in profile= */}

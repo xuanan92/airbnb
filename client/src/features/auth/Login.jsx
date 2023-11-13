@@ -39,7 +39,7 @@ const Login = ({ handleLoginClose }) => {
       dispatch(setCredentials({ accessToken }));
       setEmail("");
       setPassword("");
-      navigate("/dash");
+      navigate("/account-settings");
     } catch (err) {
       if (!err.status) {
         setErrMsg("No Server Response");
@@ -76,7 +76,9 @@ const Login = ({ handleLoginClose }) => {
         </Grid>
         <hr />
         <div className="flex flex-col p-4">
-          <h4 className="py-4">Login to your Airbnb account</h4>
+          <div className="flex justify-between">
+            <h4 className="py-4">Login to your Airbnb account</h4>
+          </div>
           <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-4 w-full h-auto"
@@ -178,7 +180,7 @@ const Login = ({ handleLoginClose }) => {
             </div>
           </div>
           <p className="text-xs italic">
-            Phone, Facebook, Google, and Apple is temporary not working
+            !!!Phone, Facebook, Google, and Apple is temporary not working
           </p>
           <div className="flex flex-col gap-4">
             <Grid

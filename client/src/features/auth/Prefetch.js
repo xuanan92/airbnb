@@ -6,14 +6,18 @@ import { Outlet } from "react-router-dom";
 
 const Prefetch = () => {
   useEffect(() => {
-    store.dispatch(
-      roomsApiSlice.util.prefetch("getRooms", "roomsList", { force: true }),
-    );
-    store.dispatch(
-      usersApiSlice.util.prefetch("getUsers", "usersList", { force: true }),
-    );
+    console.log("subscribing");
+    const rooms = store.dispatch(roomsApiSlice.endpoints.getRooms.initiate());
+    const users = store.dispatch(usersApiSlice.endpoints.getUsers.initiate());
+
+    return () => {
+      console.log("unsubscribing");
+      rooms.unsubscribe();
+      users.unsubscribe();
+    };
   }, []);
 
   return <Outlet />;
 };
+// TODO: <>@@() &0& #0# =try to use usePrefetch built in of RTKQuery=
 export default Prefetch;
