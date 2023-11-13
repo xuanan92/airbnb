@@ -8,7 +8,7 @@ const Account = () => {
       description: "Provide personal details and how we can reach you",
     },
     {
-      : Cancel,
+      Icon: Cancel,
       title: "Login & security",
       description: "Update your password and secure your account",
     },
@@ -57,13 +57,15 @@ const Account = () => {
       <p>
         Xuan An (user)<span>Go to profile</span>
       </p>
-      {cards?.map((card, index) => (
-        <div key={index} className="w-[200px]">
-          <p> {card.icon} </p>
-          <h6>{card.title}</h6>
-          <p>{card.description}</p>
-        </div>
-      ))}
+      {cards?.map((card, index) => {
+        return (
+          <div key={index} className="w-[200px]">
+            <p> {card.Icon} </p>
+            <h6>{card.title}</h6>
+            <p>{card.description}</p>
+          </div>
+        );
+      })}
       <p> Need to deactivate your account? </p>
       <span> Take care of that now </span>
     </div>
