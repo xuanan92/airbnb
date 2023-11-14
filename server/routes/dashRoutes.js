@@ -4,7 +4,7 @@ import { getUserById } from "../controllers/usersController.js";
 
 const router = express.Router();
 
-// router.use(verifyJWT);
+router.use(verifyJWT);
 
 router.route("/account-settings");
 

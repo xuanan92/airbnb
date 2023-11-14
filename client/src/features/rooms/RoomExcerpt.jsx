@@ -8,7 +8,8 @@ import {
 import Grid from "@mui/material/Unstable_Grid2";
 import ImgSlide from "./ImgSlide";
 import { useRef } from "react";
-// eslint-disable-next-line
+import { v4 as uuidv4 } from "uuid";
+
 const RoomExcerpt = ({ roomId }) => {
   const refImg = useRef(null);
   const { room, isLoading } = useGetRoomsQuery(undefined, {
@@ -32,16 +33,24 @@ const RoomExcerpt = ({ roomId }) => {
     refImg.current.scrollLeft += refImg.current.clientWidth;
     // refImg.current.scrollLeft + refImg.current.scrollWidth / slideMaxCount;
   };
+
+  const imgArray = Object.values(room.imgUrl);
+
   return (
     <div className="flex flex-col">
       <div className="flex relative flex-row w-full">
         <div
           ref={refImg}
-          className="flex overflow-x-scroll flex-auto rounded-xl no-scrollbar scroll-smooth"
+          className="flex flex-auto rounded-xl no-scrollbar scroll-smooth"
+          style={{ overflowX: "scroll", width: "100%" }}
         >
-          {room?.imgUrl?.map((image, index) => (
+          {imgArray?.map((image) => (
             <>
-              <ImgSlide key={index} image={image} length={room.imgUrl.length} />
+              <ImgSlide
+                key={uuidv4()}
+                image={image}
+                length={room.imgUrl.length}
+              />
             </>
           ))}
         </div>
