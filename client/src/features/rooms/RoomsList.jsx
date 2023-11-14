@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useState } from "react";
 import RoomExcerpt from "./RoomExcerpt";
 import { useGetRoomsQuery } from "./roomsApiSlice";
 
@@ -10,20 +10,22 @@ const RoomsList = () => {
     isError,
     error,
   } = useGetRoomsQuery();
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      setShowContent(true);
-    }, 2000); // Delay of 1 second (1000 milliseconds)
-
-    return () => clearTimeout(delay);
-  }, []);
+  // const [showContent, setShowContent] = useState(false);
+  // useEffect(() => {
+  //   const delay = setTimeout(() => {
+  //     setShowContent(true);
+  //   }, 2000); // Delay of 1 second (1000 milliseconds)
+  //
+  //   return () => clearTimeout(delay);
+  // }, []);
   let content;
-  if (isLoading || !showContent) {
+  if (
+    isLoading
+    // || !showContent
+  ) {
     content = <div className="w-full text-xl italic font-bold">Loading...</div>;
   } else if (isSuccess) {
-    content = roomIds.ids.map((roomId, index) => (
+    content = roomIds?.ids?.map((roomId, index) => (
       <RoomExcerpt key={index} roomId={roomId} />
     ));
   } else if (isError) {

@@ -39,7 +39,7 @@ const RoomExcerpt = ({ roomId }) => {
           ref={refImg}
           className="flex overflow-x-scroll flex-auto rounded-xl no-scrollbar scroll-smooth"
         >
-          {room.imgUrl.map((image, index) => (
+          {room?.imgUrl?.map((image, index) => (
             <>
               <ImgSlide key={index} image={image} length={room.imgUrl.length} />
             </>
