@@ -20,6 +20,7 @@ function App() {
           <Route index element={<RoomsList />} />
 
           <Route path="rooms">
+            <Route index element={<RoomsList />} />
             <Route path="addroom">
               <Route index element={<AddRoom />} />
             </Route>
