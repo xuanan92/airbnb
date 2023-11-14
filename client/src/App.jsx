@@ -5,7 +5,7 @@ import SingleRoom from "./features/rooms/SingleRoom";
 import AddRoom from "./features/rooms/AddRoom";
 import EditRoom from "./features/rooms/EditRoom";
 import Account from "./components/Account";
-import PersistLogin from "./features/auth/PersistLogin";
+// import PersistLogin from "./features/auth/PersistLogin";
 
 function App() {
   // NOTE: <someday>@@() &0& #0# =change icon and css for filters scrollbar=
@@ -31,9 +31,9 @@ function App() {
             </Route>
           </Route>
 
-          <Route element={<PersistLogin />}>
-            <Route path="account-settings" element={<Account />} />
-          </Route>
+          {/* <Route element={<PersistLogin />}> */}
+          <Route path="account-settings" element={<Account />} />
+          {/* </Route> */}
         </Route>
       </Routes>
     </div>

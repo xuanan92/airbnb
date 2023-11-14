@@ -38,14 +38,12 @@ import {
   Sports,
   TakeoutDining,
   Terrain,
-  Tune,
   Vrpano,
   WaterDamage,
   Waves,
   WindPower,
 } from "@mui/icons-material";
 import IconRoom from "./IconRoom";
-import ToggleButton from "./ToggleButton";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 
@@ -68,11 +66,6 @@ const Navigator = () => {
     } else {
       setCount((prev) => prev + 1);
     }
-  };
-  const [isToggle, setIsToggle] = useState(true);
-
-  const handleToggle = () => {
-    setIsToggle(!isToggle);
   };
   return (
     <div className="flex z-20 flex-row-reverse gap-4 items-center py-4 px-16">

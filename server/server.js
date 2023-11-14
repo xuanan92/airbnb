@@ -6,7 +6,7 @@ import express from "express";
 import cors from "cors";
 import root from "./routes/root.js";
 import authRoutes from "./routes/authRoutes.js";
-import dashRoutes from "./routes/dashRoutes.js";
+import dashRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import roomRoutes from "./routes/roomRoutes.js";
 import cookieParser from "cookie-parser";

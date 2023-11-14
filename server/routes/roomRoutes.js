@@ -6,7 +6,6 @@ import {
   updateRoom,
   deleteRoom,
 } from "../controllers/roomsController.js";
-import verifyJWT from "../middleware/verifyJWT.js";
 
 const router = express.Router();
 
