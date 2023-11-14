@@ -23,8 +23,8 @@ const RoomsList = () => {
   if (isLoading || !showContent) {
     content = <div className="w-full text-xl italic font-bold">Loading...</div>;
   } else if (isSuccess) {
-    content = roomIds.ids.map((roomId) => (
-      <RoomExcerpt key={roomId} roomId={roomId} />
+    content = roomIds.ids.map((roomId, index) => (
+      <RoomExcerpt key={index} roomId={roomId} />
     ));
   } else if (isError) {
     content = <div>{error}</div>;

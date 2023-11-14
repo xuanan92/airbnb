@@ -9,12 +9,22 @@ export const getAllUsers = asyncHandler(async (req, res) => {
   }
   res.json(users);
 });
+export const getUserById = asyncHandler(async (req, res) => {
+  const userEmail = req.email;
+  const user = await Users.findById({ email: userEmail })
+    .select("-password")
+    .exec();
+  if (!user?.length) {
+    res.status(400).json({ message: "No users found" });
+  }
+  res.json(user);
+});
 export const createNewUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
-  const duplicate = await Users.findOne({ email }).lean().exec();
+  const duplicate = await Users.findOne({ email });
   if (duplicate) {
     return res.status(409).json({ message: "Users existed" });
   }

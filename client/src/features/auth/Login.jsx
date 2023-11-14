@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useNavigate } from "react-router-dom";
 /* eslint-disable-next-line */
-const Login = ({ handleLoginClose }) => {
+const Login = ({ handleLogin }) => {
   const navigate = useNavigate();
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState("");
@@ -39,6 +39,7 @@ const Login = ({ handleLoginClose }) => {
       dispatch(setCredentials({ accessToken }));
       setEmail("");
       setPassword("");
+      handleLogin();
       navigate("/account-settings");
     } catch (err) {
       if (!err.status) {
@@ -58,7 +59,7 @@ const Login = ({ handleLoginClose }) => {
   return (
     <>
       <div
-        onClick={handleLoginClose}
+        onClick={handleLogin}
         className="fixed inset-0 z-50 bg-black bg-opacity-50 transition duration-200 ease-in"
       ></div>
       <div
@@ -69,8 +70,8 @@ const Login = ({ handleLoginClose }) => {
         </p>
         <Grid className="py-4" container direction="row" alignItems="center">
           <Close
-            onClick={handleLoginClose}
-            className="absolute left-4 p-1 scale-125 hover:bg-gray-100 hover:rounded-full"
+            onClick={handleLogin}
+            className="absolute left-4 p-1 scale-125 cursor-pointer hover:bg-gray-100 hover:rounded-full"
           />
           <h4 className="w-full text-center">Log in</h4>
         </Grid>

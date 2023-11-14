@@ -6,6 +6,7 @@ import express from "express";
 import cors from "cors";
 import root from "./routes/root.js";
 import authRoutes from "./routes/authRoutes.js";
+import dashRoutes from "./routes/dashRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import roomRoutes from "./routes/roomRoutes.js";
 import cookieParser from "cookie-parser";
@@ -33,6 +34,7 @@ app.use("/", root);
 app.use("/auth", authRoutes);
 app.use("/rooms", roomRoutes);
 app.use("/users", userRoutes);
+app.use("/account-settings", dashRoutes);
 
 app.all("*", (req, res) => {
   res.status(404);

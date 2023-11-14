@@ -12,7 +12,7 @@ import { useAddUserMutation } from "../features/users/usersApiSlice";
 import { PulseLoader } from "react-spinners";
 
 /* eslint-disable */
-const SignupForm = ({ handleSignUpClose }) => {
+const SignupForm = ({ handleSignup }) => {
   const errRef = useRef();
   const [addUser, { isLoading }] = useAddUserMutation();
   const [errMes, setErrMes] = useState("");
@@ -37,6 +37,7 @@ const SignupForm = ({ handleSignUpClose }) => {
       await addUser({ email, password }).unwrap();
       setEmail("");
       setPassword("");
+      handleSignup(); // or use navigate to homepage
     } catch (error) {
       if (!err.status) {
         setErrMes("No server response");
@@ -57,7 +58,7 @@ const SignupForm = ({ handleSignUpClose }) => {
   return (
     <>
       <div
-        onClick={handleSignUpClose}
+        onClick={handleSignup}
         className="fixed inset-0 z-50 bg-black bg-opacity-50 transition duration-200 ease-in"
       ></div>
       <div
@@ -68,7 +69,7 @@ const SignupForm = ({ handleSignUpClose }) => {
         </p>
         <Grid className="py-4" container direction="row" alignItems="center">
           <Close
-            onClick={handleSignUpClose}
+            onClick={handleSignup}
             className="absolute left-4 p-1 scale-125 hover:bg-gray-100 hover:rounded-full"
           />
           <h4 className="w-full text-center">Sign up</h4>

@@ -1,19 +1,39 @@
-import Modal from "./Modal";
+import { useDispatch, useSelector } from "react-redux";
+import SignupForm from "./SignupForm";
+import Login from "../features/auth/Login";
+import ModalAccess from "./ModalAccess";
 import { useState } from "react";
+import { logOut, selectCurrentToken } from "../features/auth/authSlice";
 
 const Avagroup = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectCurrentToken);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
+  const handleSignup = () => {
+    setIsSignUpOpen(!isSignUpOpen);
   };
-  const handleModalClose = () => {
-    setIsModalOpen(false);
+  const handleLogin = () => {
+    setIsLoginOpen(!isLoginOpen);
+  };
+  const handleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+  const handleLogout = () => {
+    dispatch(logOut());
   };
   return (
     <div className="flex relative gap-2 items-center ml-auto">
-      <h6 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
-        Airbnb your home
-      </h6>
+      {!token ? (
+        <h6 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
+          Airbnb your home
+        </h6>
+      ) : (
+        <h6 className="p-4 font-medium text-black hover:bg-gray-100 hover:rounded-full">
+          Switch to hosting
+        </h6>
+      )}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -32,7 +52,7 @@ const Avagroup = () => {
       {/* avatar button */}
       <button
         className="flex relative gap-4 items-center py-2 px-4 rounded-full border hover:shadow-lg hover:shadow-gray-300"
-        onClick={handleModalOpen}
+        onClick={handleModal}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +84,16 @@ const Avagroup = () => {
           </svg>
         </div>
       </button>
-      {isModalOpen && <Modal handleModalClose={handleModalClose} />}
+      {isModalOpen && (
+        <ModalAccess
+          handleModal={handleModal}
+          handleSignup={handleSignup}
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+        />
+      )}
+      {isSignUpOpen && <SignupForm handleSignup={handleSignup} />}
+      {isLoginOpen && <Login handleLogin={handleLogin} />}
     </div>
   );
 };
