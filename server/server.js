@@ -15,7 +15,7 @@ import errorHandler from "./middleware/errorHandler.js";
 import connectDB from "./config/dbConn.js";
 import { logger, logEvents } from "./middleware/logger.js";
 const app = express();
-const PORT = process.env.PORT || 5005;
+const PORT = process.env.PORT || 3000;
 
 console.log(process.env.NODE_ENV);
 
