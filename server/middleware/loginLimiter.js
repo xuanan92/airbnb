@@ -1,4 +1,4 @@
-import { logEvents } from "./logger";
+import { logEvents } from "./logger.js";
 import { rateLimit } from "express-rate-limit";
 
 const loginLimiter = rateLimit({

@@ -2,6 +2,8 @@ import { format } from "date-fns";
 import { v4 } from "uuid";
 import fs from "fs";
 import path from "path";
+import { getDirName } from "../helpers/dirname.js";
+const __dirname = getDirName(import.meta.url);
 const fsPromises = fs.promises;
 
 export const logEvents = async (message, logFileName) => {

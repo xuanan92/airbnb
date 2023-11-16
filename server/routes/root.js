@@ -1,5 +1,7 @@
 import express from "express";
 import path from "path";
+import { getDirName } from "../helpers/dirname.js";
+const __dirname = getDirName(import.meta.url);
 
 const router = express.Router();
 

@@ -1,5 +1,4 @@
 import dotenv from "dotenv";
-dotenv.config();
 import path from "path";
 import mongoose from "mongoose";
 import express from "express";
@@ -13,11 +12,13 @@ import cookieParser from "cookie-parser";
 import corsOptions from "./config/corsOptions.js";
 import errorHandler from "./middleware/errorHandler.js";
 import connectDB from "./config/dbConn.js";
+import { getDirName } from "./helpers/dirname.js";
 import { logger, logEvents } from "./middleware/logger.js";
-const app = express();
-const PORT = process.env.PORT || 3000;
 
-console.log(process.env.NODE_ENV);
+const app = express();
+const PORT = process.env.PORT || 5005;
+dotenv.config();
+const __dirname = getDirName(import.meta.url);
 
 connectDB();
 
@@ -51,15 +52,15 @@ app.all("*", (req, res) => {
 
 app.use(errorHandler);
 
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-});
-// mongoose.connection.once("open", () => {
-//   console.log("Connected to MongoDB");
-//   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// connectDB().then(() => {
+//   app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });
 // });
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB");
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});
 
 mongoose.connection.on("error", (err) => {
   console.log(err);

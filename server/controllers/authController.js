@@ -1,7 +1,7 @@
 import Users from "../models/Users.js";
 import bcrypt from "bcryptjs";
 import expressAsyncHandler from "express-async-handler";
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
 export const login = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
