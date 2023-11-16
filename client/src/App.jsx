@@ -12,7 +12,8 @@ function App() {
   // NOTE: <someday>@@() &0& #0# =add more motel to the app=
   // NOTE: <someday>@@() &0& #0# =add slide css to roomexcerpt=
   // NOTE: <someday>@@() &0& #0# =create filter button => new modal filter created=
-  // NOTE: <soemday>@@() &0& #0# =Adding footer=
+  // NOTE: <someday>@@() &0& #0# =Adding footer=
+  // TODO: <>@@() &0& #0# =add slide with 5 points below Image Slider=
   return (
     <div className="app">
       <Routes>

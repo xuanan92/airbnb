@@ -91,7 +91,7 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
             }}
             className="flex flex-col justify-center p-2 px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500"
           >
-            <h6>Check in</h6>
+            <h6 className="whitespace-nowrap">Check in</h6>
             <p>Add dates</p>
           </button>
           <button
@@ -100,8 +100,8 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
             }}
             className="flex flex-col justify-center px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500"
           >
-            <h6>Check out</h6>
-            <p>Add dates</p>
+            <h6 className="whitespace-nowrap">Check out</h6>
+            <p className="whitespace-nowrap">Add dates</p>
           </button>
           <button
             onClick={() => {
@@ -111,10 +111,10 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
           >
             <div className="text-left">
               <h6>Who</h6>
-              <p>Add guests</p>
+              <p className="whitespace-nowrap">Add guests</p>
             </div>
             <Grid
-              className="flex justify-center p-2 px-4 font-bold text-white bg-red-500 rounded-full hover:px-2 flex-end"
+              className="flex flex-row justify-center p-2 px-4 font-bold text-white bg-red-500 rounded-full hover:px-2 flex-end"
               container
               direction="row"
               alignItems="center"

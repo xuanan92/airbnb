@@ -12,6 +12,7 @@ const router = express.Router();
 router
   .route("/")
   .get(getAllRooms)
+  .get(getRoomById)
   .post(createNewRoom)
   .patch(updateRoom)
   .delete(deleteRoom);

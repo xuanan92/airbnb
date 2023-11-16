@@ -1,8 +1,9 @@
 import Users from "../models/Users.js";
 import bcrypt from "bcryptjs";
+import expressAsyncHandler from "express-async-handler";
 const jwt = require("jsonwebtoken");
 
-export const login = async (req, res) => {
+export const login = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(400).json({ message: "All fields are required" });
@@ -10,11 +11,11 @@ export const login = async (req, res) => {
 
   const foundUser = await Users.findOne({ email }).exec();
 
-  if (!foundUser) {
+  if (!foundUser && !foundUser.email) {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
-  const match = bcrypt.compare(password, foundUser.password);
+  const match = await bcrypt.compare(password, foundUser.password);
 
   if (!match) return res.status(401).json({ message: "Unauthorized" });
 
@@ -54,7 +55,7 @@ export const login = async (req, res) => {
 
   // Send accessToken containing username and roles
   return res.json({ accessToken });
-};
+});
 
 export const refresh = (req, res) => {
   const cookies = req.cookies;
@@ -66,7 +67,7 @@ export const refresh = (req, res) => {
   jwt.verify(
     refreshToken,
     process.env.REFRESH_TOKEN_SECRET,
-    async (err, decoded) => {
+    expressAsyncHandler(async (err, decoded) => {
       if (err) return res.status(403).json({ message: "Forbidden" });
 
       const foundUser = await Users.findOne({
@@ -89,7 +90,7 @@ export const refresh = (req, res) => {
       );
 
       res.json({ accessToken });
-    },
+    }),
   );
 };
 

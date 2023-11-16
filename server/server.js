@@ -21,6 +21,7 @@ console.log(process.env.NODE_ENV);
 
 connectDB();
 
+// TODO: <>@@() &0& #0# =review logger middleware and remake=
 app.use(logger);
 // app.use(cors(corsOptions));
 app.use(cors(corsOptions));
@@ -49,8 +50,6 @@ app.all("*", (req, res) => {
 });
 
 app.use(errorHandler);
-
-// TODO: <>{}() &0& #0# == create log middleware
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
