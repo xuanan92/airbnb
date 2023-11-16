@@ -15,7 +15,7 @@ import errorHandler from "./middleware/errorHandler.js";
 import connectDB from "./config/dbConn.js";
 import { logger, logEvents } from "./middleware/logger.js";
 const app = express();
-const port = process.env.PORT || 5005;
+const PORT = process.env.PORT || 5005;
 
 console.log(process.env.NODE_ENV);
 
@@ -51,10 +51,15 @@ app.all("*", (req, res) => {
 
 app.use(errorHandler);
 
-mongoose.connection.once("open", () => {
-  console.log("Connected to MongoDB");
-  app.listen(port, () => console.log(`Server running on port ${port}`));
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });
+// mongoose.connection.once("open", () => {
+//   console.log("Connected to MongoDB");
+//   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// });
 
 mongoose.connection.on("error", (err) => {
   console.log(err);
