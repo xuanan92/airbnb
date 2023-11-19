@@ -4,17 +4,34 @@ import Logo from "./Logo";
 import { Close, Search } from "@mui/icons-material";
 import { useState } from "react";
 import ButtonRegions from "./ButtonRegions";
+import { DayPicker } from "react-day-picker";
+import { format } from "date-fns";
+import "react-day-picker/dist/style.css";
 
 const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
   const [searchByRegionModal, setSearchByRegionModal] = useState(true);
   const [searchDestinations, setSearchDestinations] = useState("");
+  const [dayPickerOpen, setDayPickerOpen] = useState(false);
   const onChangeDestinations = (e) => {
     setSearchDestinations(e.target.value);
   };
   const onCloseSearchRegionModal = () => {
     setSearchByRegionModal(false);
   };
+  const [range, setRange] = useState(null);
   // onclick outside will on header turn off modal
+  let start;
+  let end;
+  if (range?.from) {
+    if (!range.to) {
+      // this will only style check in button
+      start = <p>{format(range.from, "MMM d")}</p>;
+    } else if (range.to) {
+      // this will only style check out button
+      start = <p>{format(range.from, "MMM d")}</p>;
+      end = <p>{format(range.to, "MMM d")}</p>;
+    }
+  }
   return (
     <>
       <div
@@ -85,24 +102,39 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
               </>
             )}
           </button>
-          <button
+          <div
+            className="flex flex-row"
             onClick={() => {
               onCloseSearchRegionModal();
+              setDayPickerOpen(true);
             }}
-            className="flex flex-col justify-center p-2 px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500"
           >
-            <h6 className="whitespace-nowrap">Check in</h6>
-            <p>Add dates</p>
-          </button>
-          <button
-            onClick={() => {
-              onCloseSearchRegionModal();
-            }}
-            className="flex flex-col justify-center px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500"
-          >
-            <h6 className="whitespace-nowrap">Check out</h6>
-            <p className="whitespace-nowrap">Add dates</p>
-          </button>
+            <button className="flex flex-col justify-center p-2 px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500">
+              <h6 className="whitespace-nowrap">Check in</h6>
+              {start ? start : <p className="whitespace-nowrap">Add dates</p>}
+            </button>
+            <button className="flex flex-col justify-center p-2 px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500">
+              <h6 className="whitespace-nowrap">Check out</h6>
+              {end ? end : <p className="whitespace-nowrap">Add dates</p>}
+            </button>
+            {dayPickerOpen && (
+              <>
+                <div className="absolute top-24 z-[104]">
+                  <DayPicker
+                    mode="range"
+                    numberOfMonths={2}
+                    selected={range}
+                    defaultMonth={new Date()}
+                    disabled={new Date(1900, 0, 1)}
+                    onSelect={setRange}
+                    pagedNavigation
+                    showOutsideDays
+                    fixedWeeks
+                  />
+                </div>
+              </>
+            )}
+          </div>
           <button
             onClick={() => {
               onCloseSearchRegionModal();

@@ -5,6 +5,7 @@ import SingleRoom from "./features/rooms/SingleRoom";
 import AddRoom from "./features/rooms/AddRoom";
 import EditRoom from "./features/rooms/EditRoom";
 import Account from "./components/Account";
+
 // import PersistLogin from "./features/auth/PersistLogin";
 
 function App() {
@@ -19,7 +20,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<RoomsList />} />
-
           <Route path="rooms">
             <Route index element={<RoomsList />} />
             <Route path="addroom">
