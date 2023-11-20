@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ButtonRegion = () => {
+const SelectRegions = () => {
   const regions = [
     {
       name: "I'am flexible",
@@ -59,11 +59,16 @@ const ButtonRegion = () => {
     );
   });
   return (
-    <div className="flex flex-wrap gap-4 gap-y-8 justify-center">
-      {/* <input type="text" onChange={onChangeDestinationByClick} value={input} /> */}
-      {content}
+    <div className="absolute rounded-2xl p-4 left-0 -bottom-4 translate-y-[100%] bg-white w-[466px] h-[466px] z-[201]">
+      <div className="px-5 my-8 h-auto">
+        <h6 className="mb-5 text-left">Search by region</h6>
+        <div className="flex flex-wrap gap-4 gap-y-8 justify-center">
+          {/* <input type="text" onChange={onChangeDestinationByClick} value={input} /> */}
+          {content}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ButtonRegion;
+export default SelectRegions;

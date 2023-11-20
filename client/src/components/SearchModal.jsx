@@ -2,36 +2,27 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Avagroup from "./Avagroup";
 import Logo from "./Logo";
 import { Close, Search } from "@mui/icons-material";
-import { useState } from "react";
-import ButtonRegions from "./ButtonRegions";
+import { useEffect, useState } from "react";
+import SelectRegions from "./SelectRegions";
 import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import "react-day-picker/dist/style.css";
 
 const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
-  const [searchByRegionModal, setSearchByRegionModal] = useState(true);
-  const [searchDestinations, setSearchDestinations] = useState("");
-  const [dayPickerOpen, setDayPickerOpen] = useState(false);
-  const onChangeDestinations = (e) => {
-    setSearchDestinations(e.target.value);
+  const [isModalGeoOpen, setIsModalGeoOpen] = useState(false);
+  const [searchLocation, setSearchLocation] = useState("");
+  const [checkInToggle, setCheckInToggle] = useState(false);
+  const [checkOutToggle, setCheckOutToggle] = useState(false);
+  const [isModalDayPickOpen, setIsModalDayPickOpen] = useState(false);
+  const [numberOfGuests, setNumberOfGuests] = useState("");
+  const [range, setRange] = useState(null);
+  const onChangeRegions = (e) => {
+    setSearchLocation(e.target.value);
   };
   const onCloseSearchRegionModal = () => {
-    setSearchByRegionModal(false);
+    setIsModalGeoOpen(false);
   };
-  const [range, setRange] = useState(null);
   // onclick outside will on header turn off modal
-  let start;
-  let end;
-  if (range?.from) {
-    if (!range.to) {
-      // this will only style check in button
-      start = <p>{format(range.from, "MMM d")}</p>;
-    } else if (range.to) {
-      // this will only style check out button
-      start = <p>{format(range.from, "MMM d")}</p>;
-      end = <p>{format(range.to, "MMM d")}</p>;
-    }
-  }
   return (
     <>
       <div
@@ -65,88 +56,79 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
       </div>
 
       <div className="fixed left-0 top-24 w-full h-24 bg-white z-[100]">
-        <div className="flex relative m-auto w-1/2 h-16 bg-gray-100 rounded-full">
-          <button className="flex justify-center items-center hover:bg-gray-200 hover:rounded-full flex-grow-[2]">
+        <form className="flex relative m-auto w-1/2 h-16 bg-gray-100 rounded-full">
+          <label
+            onFocus={() => setIsModalGeoOpen(true)}
+            onBlur={() => setIsModalGeoOpen(false)}
+            className="py-3 px-8 my-auto w-full rounded-full rounded-l-full focus-within:bg-white focus-within:shadow-2xl hover:rounded-full hover:cursor-pointer focus-within:shadow-gray-500"
+          >
+            <h6 className="w-full font-bold text-left">Where</h6>
+            <input
+              className="w-full bg-transparent hover:cursor-pointer focus:bg-transparent focus:outline-none"
+              autoFocus
+              type="text"
+              value={searchLocation}
+              onChange={onChangeRegions}
+              placeholder="Search destinations"
+            />
+          </label>
+          {/* <Close /> */}
+          <div
+            className="flex items-center"
+            onFocus={() => setIsModalDayPickOpen(true)}
+          >
             <label
-              onClick={() => setSearchByRegionModal(true)}
-              className="py-3 px-8 my-auto w-full rounded-full rounded-l-full focus-within:bg-white focus-within:shadow-2xl hover:rounded-full focus-within:shadow-gray-500"
+              onClick={() => setCheckInToggle(!checkInToggle)}
+              className={`${
+                range?.from && !range?.to
+                  ? "bg-white rounded-full shadow-2xl shadow-black"
+                  : ""
+              }
+flex flex-col justify-center p-2 px-8 focus-within:bg-white focus-within:rounded-full focus-within:shadow-2xl hover:bg-gray-200 hover:rounded-full hover:cursor-pointer focus-within:shadow-gray-500 hover:focus-within:bg-white`}
             >
-              <div className="w-full font-bold text-left">Where</div>
+              <h6 className="whitespace-nowrap">Check in</h6>
               <input
-                className="w-full bg-transparent focus:bg-transparent focus:outline-none"
-                autoFocus
                 type="text"
-                value={searchDestinations}
-                onChange={onChangeDestinations}
-                placeholder="Search destinations"
+                className="bg-transparent hover:cursor-pointer focus:outline-none"
+                value={range?.from && format(range?.from, "MMM dd")}
+                readOnly
+                placeholder="Add dates"
               />
             </label>
-            {/* <Close /> */}
-            {searchByRegionModal && (
-              <>
-                <div
-                  className="fixed inset-0 top-48 bg-transparent z-[103]"
-                  onClick={() => {
-                    onCloseSearchRegionModal();
-                    handleModalClose();
-                  }}
-                ></div>
-                <div className="absolute rounded-2xl p-4 left-0 -bottom-2 translate-y-[100%] bg-white w-[466px] h-[466px] z-[201]">
-                  <div className="px-5 my-8 h-auto">
-                    <h6 className="mb-5 text-left">Search by region</h6>
-                    <ButtonRegions
-                      onChangeDestinations={onChangeDestinations}
-                    />
-                  </div>
-                </div>
-              </>
-            )}
-          </button>
-          <div
-            className="flex flex-row"
-            onClick={() => {
-              onCloseSearchRegionModal();
-              setDayPickerOpen(true);
-            }}
-          >
-            <button className="flex flex-col justify-center p-2 px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500">
-              <h6 className="whitespace-nowrap">Check in</h6>
-              {start ? start : <p className="whitespace-nowrap">Add dates</p>}
-            </button>
-            <button className="flex flex-col justify-center p-2 px-8 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500">
+            <label
+              onClick={() => setCheckOutToggle(!checkOutToggle)}
+              className={`${
+                range?.to ? "bg-white rounded-full shadow-black shadow-2xl" : ""
+              } flex flex-col justify-center p-2 px-8 focus-within:bg-white focus-within:rounded-full focus-within:shadow-2xl hover:bg-gray-200 hover:rounded-full hover:cursor-pointer focus-within:shadow-gray-500 hover:focus-within:bg-white`}
+            >
               <h6 className="whitespace-nowrap">Check out</h6>
-              {end ? end : <p className="whitespace-nowrap">Add dates</p>}
-            </button>
-            {dayPickerOpen && (
-              <>
-                <div className="absolute top-24 z-[104]">
-                  <DayPicker
-                    mode="range"
-                    numberOfMonths={2}
-                    selected={range}
-                    defaultMonth={new Date()}
-                    disabled={new Date(1900, 0, 1)}
-                    onSelect={setRange}
-                    pagedNavigation
-                    showOutsideDays
-                    fixedWeeks
-                  />
-                </div>
-              </>
-            )}
+              <input
+                type="text"
+                className="bg-transparent hover:cursor-pointer focus:outline-none"
+                value={range?.to ? format(range?.to, "MMM dd") : ""}
+                readOnly
+                placeholder="Add dates"
+              />
+            </label>
           </div>
-          <button
-            onClick={() => {
+          <div
+            onFocus={() => {
               onCloseSearchRegionModal();
             }}
-            className="flex flex-row justify-between items-center pr-2 pl-8 w-48 hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus:shadow-2xl flex-grow-[1] focus:shadow-gray-500"
+            className="flex flex-row justify-between items-center pr-2 pl-8 focus-within:bg-white focus-within:rounded-full focus-within:shadow-2xl hover:bg-gray-200 hover:rounded-full focus:bg-white focus:rounded-full focus-within:shadow-gray-500 hover:focus-within:bg-white"
           >
-            <div className="text-left">
+            <label className="w-40 text-left hover:cursor-pointer">
               <h6>Who</h6>
-              <p className="whitespace-nowrap">Add guests</p>
-            </div>
+              <input
+                type="text"
+                className="bg-transparent hover:cursor-pointer focus:outline-none"
+                value={numberOfGuests}
+                placeholder="Add guests"
+                readOnly
+              />
+            </label>
             <Grid
-              className="flex flex-row justify-center p-2 px-4 font-bold text-white bg-red-500 rounded-full hover:px-2 flex-end"
+              className="flex flex-row justify-center p-2 px-4 w-32 font-bold text-white bg-red-500 rounded-full hover:px-2"
               container
               direction="row"
               alignItems="center"
@@ -154,8 +136,28 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
               <Search />
               <h5 className="p-1">Search</h5>
             </Grid>
-          </button>
-        </div>
+          </div>
+          {isModalGeoOpen && (
+            <SelectRegions onChangeRegions={onChangeRegions} />
+          )}
+          {isModalDayPickOpen && (
+            <>
+              <div className="flex absolute -bottom-4 translate-y-[100%] border justify-center w-full bg-white rounded-2xl z-[104]">
+                <DayPicker
+                  mode="range"
+                  numberOfMonths={2}
+                  selected={range}
+                  defaultMonth={new Date()}
+                  disabled={new Date(1900, 0, 1)}
+                  onSelect={setRange}
+                  pagedNavigation
+                  showOutsideDays
+                  fixedWeeks
+                />
+              </div>
+            </>
+          )}
+        </form>
       </div>
     </>
   );
