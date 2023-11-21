@@ -47,10 +47,10 @@ const EditRoom = () => {
           <p className="w-44">Owner</p>
           <select className="p-1 w-full bg-white rounded-md">
             <option value=""></option>
-            {/* WARN: <soon>@@() &0& #0# =need to mark options of owner here= */}
+            {/* NEXT: <soon>@@() &0& #0# =need to mark options of owner here= */}
           </select>
         </label>
-        {/* WARN: <soon>@@() &0& #0# =add upload images feature later= */}
+        {/* NEXT: <soon>@@() &0& #0# =add upload images feature later= */}
         <label className="flex">
           <p className="w-44">Images Url:</p>
           <input

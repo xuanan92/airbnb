@@ -69,7 +69,7 @@ const Navigator = () => {
   };
   return (
     <div className="flex z-20 flex-row-reverse gap-4 items-center py-4 px-16">
-      {/* // NOTE: <>@@() &0& #0# =add filter and filter taxes later= */}
+      {/* // SOME: <>@@() &0& #0# =add filter and filter taxes later= */}
       {/* <ToggleButton toggleChange={handleToggle} isToggle={isToggle}> */}
       {/*   <h5 className="whitespace-nowrap">Display total before taxes</h5> */}
       {/* </ToggleButton> */}

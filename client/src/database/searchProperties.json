@@ -1,8 +1,4 @@
-{
-  "status": true,
-  "message": "Success",
-  "timestamp": 1700212591423,
-  "data": [
+[
     {
       "avgRating": 4.98,
       "listingBathroomLabel": "1.5 baths",
@@ -1810,5 +1806,3 @@
         }
       ]
     }
-  ]
-}

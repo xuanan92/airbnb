@@ -5,16 +5,18 @@ import SingleRoom from "./features/rooms/SingleRoom";
 import AddRoom from "./features/rooms/AddRoom";
 import EditRoom from "./features/rooms/EditRoom";
 import Account from "./components/Account";
+import Giftcards from "./components/Giftcards";
+import Redeem from "./components/Redeem";
 
 // import PersistLogin from "./features/auth/PersistLogin";
 
 function App() {
-  // NOTE: <someday>@@() &0& #0# =change icon and css for filters scrollbar=
-  // NOTE: <someday>@@() &0& #0# =add more motel to the app=
-  // NOTE: <someday>@@() &0& #0# =add slide css to roomexcerpt=
-  // NOTE: <someday>@@() &0& #0# =create filter button => new modal filter created=
-  // NOTE: <someday>@@() &0& #0# =Adding footer=
-  // TODO: <>@@() &0& #0# =add slide with 5 points below Image Slider=
+  // SOME: <>@@() &0& #0# =change icon and css for filters scrollbar=
+  // SOME: <>@@() &0& #0# =add more motel to the app=
+  // SOME: <>@@() &0& #0# =add slide css to roomexcerpt=
+  // SOME: <>@@() &0& #0# =create filter button => new modal filter created=
+  // SOME: <>@@() &0& #0# =Adding footer=
+  // SOME: <>@@() &0& #0# =add slide with 5 points below Image Slider=
   return (
     <div className="app">
       <Routes>
@@ -25,7 +27,6 @@ function App() {
             <Route path="addroom">
               <Route index element={<AddRoom />} />
             </Route>
-
             <Route path=":roomId">
               <Route index element={<SingleRoom />} />
 
@@ -37,6 +38,8 @@ function App() {
           <Route path="account-settings" element={<Account />} />
           {/* </Route> */}
         </Route>
+        <Route path="giftcards" element={<Giftcards />} />
+        <Route path="gift" element={<Redeem />} />
       </Routes>
     </div>
   );

@@ -39,5 +39,5 @@ const RoomsList = () => {
 };
 
 export default RoomsList;
-// NOTE: <>{}() &0& #0# == Adding data to mongoose db by using add room function and asyncronous network
+// SOME: <>{}() &0& #0# == Adding data to mongoose db by using add room function and asyncronous network
 //
