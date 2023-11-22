@@ -33,7 +33,7 @@ const SelectRegions = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb_7QbdF1lE25TRXEmiTGXOy5qj3oYAjYuQVyXcYFgLSGT5rgiZZuJemVnKo8gX7Xy6rs&usqp=CAU",
     },
   ];
-  // HACK: <next onChangeDestination>@@() &0& #0# =how to click button and record value to input =
+  // NEXT: <next onChangeDestination>@@() &0& #0# =how to click button and record value to input =
   const [input, setInput] = useState([]);
   const onChangeDestinationByClick = (e) => {
     const [name] = e.target.id || e.target.value;

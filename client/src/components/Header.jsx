@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="grid grid-cols-3 px-16 h-24 shadow-sm z-60 shadow-gray-200">
       <Logo />
-      {/* // NOTE: <>@@() &0& #0# =onCLick this div show animation= */}
+      {/* // SOME: <>@@() &0& #0# =onCLick this div show animation= */}
       <SearchGroup />
       <Avagroup />
     </div>

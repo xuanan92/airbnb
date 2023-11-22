@@ -26,8 +26,8 @@ const SignupForm = ({ handleSignup }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  // NOTE: <someday>@@() &0& #0# =add error message after isFailed form submission=
-  // HACK: <next prefetch>@@() &0& #0# =need to wrap prefetch for manual maintain connection=
+  // SOME: <someday>@@() &0& #0# =add error message after isFailed form submission=
+  // NEXT: <next prefetch>@@() &0& #0# =need to wrap prefetch for manual maintain connection=
   const handleSwitchForm = () => {
     setSwitchForm(!switchForm);
   };

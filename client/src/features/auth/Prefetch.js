@@ -19,5 +19,5 @@ const Prefetch = () => {
 
   return <Outlet />;
 };
-// TODO: <>@@() &0& #0# =try to use usePrefetch built in of RTKQuery=
+// SOME: <>@@() &0& #0# =try to use usePrefetch built in of RTKQuery=
 export default Prefetch;

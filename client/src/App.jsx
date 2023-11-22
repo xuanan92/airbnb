@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout";
-import RoomsList from "./features/rooms/RoomsList";
-import SingleRoom from "./features/rooms/SingleRoom";
-import AddRoom from "./features/rooms/AddRoom";
-import EditRoom from "./features/rooms/EditRoom";
 import Account from "./components/Account";
 import Giftcards from "./components/Giftcards";
+import Layout from "./components/Layout";
 import Redeem from "./components/Redeem";
+import AddRoom from "./features/rooms/AddRoom";
+import EditRoom from "./features/rooms/EditRoom";
+import RoomsList from "./features/rooms/RoomsList";
+import SingleRoom from "./features/rooms/SingleRoom";
 
 // import PersistLogin from "./features/auth/PersistLogin";
 

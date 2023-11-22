@@ -107,16 +107,16 @@ const Navigator = () => {
           })}
         </div>
       </div>
-      {/* HACK: <user account>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
-      {/* HACK: <search css>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
-      {/* HACK: <search>@@() &0& #0# =adding search function in details <time consuming>= */}
-      {/* HACK: <search>@@() &0& #0# =Adding filter function for rooms= */}
-      {/* // HACK: <user login>@@() &0& #0# =user login with protected route= */}
-      {/* // HACK: <user login>@@() &0& #0# =After login successful will navigate to /dash= */}
+      {/* NEXT: <user account>@@() &0& #0# =show modal after click on avatar with content (includes settings;= */}
+      {/* NEXT: <search css>@@() &0& #0# =fix header with zoomin animation show additional components for searching= */}
+      {/* NEXT: <search>@@() &0& #0# =adding search function in details <time consuming>= */}
+      {/* NEXT: <search>@@() &0& #0# =Adding filter function for rooms= */}
+      {/* // NEXT: <user login>@@() &0& #0# =user login with protected route= */}
+      {/* // NEXT: <user login>@@() &0& #0# =After login successful will navigate to /dash= */}
 
-      {/* NOTE: <next>@30@(l) &0& #0# =add footer content and corresponding linked contents to database= */}
-      {/* NOTE: <someday>@@() &0& #0# =adding user login functions= */}
-      {/* NOTE: <someday>@@() &0& #0# =set link in profile= */}
+      {/* SOME: <next>@30@(l) &0& #0# =add footer content and corresponding linked contents to database= */}
+      {/* SOME: <someday>@@() &0& #0# =adding user login functions= */}
+      {/* SOME: <someday>@@() &0& #0# =set link in profile= */}
     </div>
   );
 };
