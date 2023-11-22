@@ -1,12 +1,12 @@
+import { Search } from "@mui/icons-material";
 import Grid from "@mui/material/Unstable_Grid2";
+import { format } from "date-fns";
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 import Avagroup from "./Avagroup";
 import Logo from "./Logo";
-import { Close, Search } from "@mui/icons-material";
-import { useEffect, useState } from "react";
 import SelectRegions from "./SelectRegions";
-import { DayPicker } from "react-day-picker";
-import { format, parseISO } from "date-fns";
-import "react-day-picker/dist/style.css";
 
 const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
   const [isModalGeoOpen, setIsModalGeoOpen] = useState(false);
@@ -14,7 +14,7 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
   const [checkInToggle, setCheckInToggle] = useState(false);
   const [checkOutToggle, setCheckOutToggle] = useState(false);
   const [isModalDayPickOpen, setIsModalDayPickOpen] = useState(false);
-  const [numberOfGuests, setNumberOfGuests] = useState("");
+  const [numberOfGuests] = useState("");
   const [range, setRange] = useState(null);
   const onChangeRegions = (e) => {
     setSearchLocation(e.target.value);
