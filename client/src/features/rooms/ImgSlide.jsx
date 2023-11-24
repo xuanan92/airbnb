@@ -3,7 +3,7 @@ const ImgSlide = ({ image }) => {
   return (
     <>
       <img
-        className="object-cover object-center w-auto h-60"
+        className="object-cover object-center w-auto"
         src={image}
         alt="img"
       />

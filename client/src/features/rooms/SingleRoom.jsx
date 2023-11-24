@@ -23,10 +23,10 @@ const SingleRoom = () => {
             <div className="flex-auto py-8 text-black">
               <h2>Title of the place post</h2>
               <ol className="inline-flex gap-4 text-xl">
-                <span>4 guests</span>
-                <span>1 bed room</span>
-                <span>2 beds</span>
-                <span>1 bath</span>
+                {room.listingGuestLabel}{" "}
+                {room.bedrooms ? `${room.bedrooms} bedrooms` : ""}{" "}
+                {room.bed ? `${room.bed} beds` : ""}{" "}
+                {room.bathrooms ? `${room.bathrooms} bathrooms` : ""}
               </ol>
             </div>
             <div className="flex overflow-hidden items-center w-14">
@@ -37,10 +37,9 @@ const SingleRoom = () => {
               />
             </div>
           </div>
-          <p>{room.location}</p>
-          <p>{room.rating}</p>
-          <p>{room.owner}</p>
-          <p>{room.date}</p>
+          <p>{room.publicAdress}</p>
+          <p>{room.avgRating}</p>
+          <p>{room.checkin}</p>
           <p>${room.price} night</p>
         </div>
       </div>

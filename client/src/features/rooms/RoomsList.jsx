@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useEffect, useState } from "react";
 import RoomExcerpt from "./RoomExcerpt";
 import { useGetRoomsQuery } from "./roomsApiSlice";
@@ -32,7 +31,7 @@ const RoomsList = () => {
   }
 
   return (
-    <div className="px-16 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 justify-center">
+    <div className="px-16 grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-6 justify-center">
       {content}
     </div>
   );
