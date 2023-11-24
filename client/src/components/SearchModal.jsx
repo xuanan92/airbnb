@@ -14,7 +14,7 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
   const [checkInToggle, setCheckInToggle] = useState(false);
   const [checkOutToggle, setCheckOutToggle] = useState(false);
   const [isModalDayPickOpen, setIsModalDayPickOpen] = useState(false);
-  const [numberOfGuests] = useState("");
+  const [numberOfGuests, setNumberOfGuests] = useState("");
   const [range, setRange] = useState(null);
   const onChangeRegions = (e) => {
     setSearchLocation(e.target.value);
