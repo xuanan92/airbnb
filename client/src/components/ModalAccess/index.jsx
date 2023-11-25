@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCurrentToken } from "../features/auth/authSlice";
+import { selectCurrentToken } from "../../features/auth/authSlice";
 /* eslint-disable */
 const ModalAccess = ({
   handleModal,

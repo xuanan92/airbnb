@@ -63,7 +63,7 @@ const Login = ({ handleLogin }) => {
         className="fixed inset-0 z-50 bg-black bg-opacity-50 transition duration-200 ease-in"
       ></div>
       <div
-        className={`flex h-3/4 fixed inset-0 flex-col m-auto w-1/3 text-black bg-white rounded-xl z-[60]`}
+        className={`flex h-5/6 fixed inset-0 flex-col m-auto w-1/3 text-black bg-white rounded-xl z-[60]`}
       >
         <p ref={errRef} className={errClass} aria-live="assertive">
           {errMsg}
@@ -82,11 +82,11 @@ const Login = ({ handleLogin }) => {
           </div>
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 w-full h-auto"
+            className="flex flex-col gap-4 items-center w-full h-auto"
           >
-            {!switchForm && (
+            {!switchForm ? (
               <>
-                <div className="flex flex-col w-full rounded-lg border">
+                <div className="flex flex-col w-full rounded-xl border">
                   <select
                     className="py-4 px-2 bg-white rounded-t-lg border focus:rounded-lg before:content-[attr('Country/Region')]"
                     value="35"
@@ -144,8 +144,7 @@ const Login = ({ handleLogin }) => {
                   <span className="font-bold underline">Privacy Policy</span>
                 </p>
               </>
-            )}
-            {switchForm && (
+            ) : (
               <>
                 <input
                   className="py-4 px-2 w-full rounded-lg border"

@@ -4,8 +4,8 @@ import { format } from "date-fns";
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import Avagroup from "./Avagroup";
-import Logo from "./Logo";
+import Avagroup from "../../components/Header/Avagroup";
+import Logo from "../../components/Logo";
 import SelectRegions from "./SelectRegions";
 
 const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
@@ -14,7 +14,7 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
   const [checkInToggle, setCheckInToggle] = useState(false);
   const [checkOutToggle, setCheckOutToggle] = useState(false);
   const [isModalDayPickOpen, setIsModalDayPickOpen] = useState(false);
-  const [numberOfGuests, setNumberOfGuests] = useState("");
+  const [numberOfGuests] = useState("");
   const [range, setRange] = useState(null);
   const onChangeRegions = (e) => {
     setSearchLocation(e.target.value);

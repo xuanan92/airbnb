@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import SignupForm from "./SignupForm";
-import Login from "../features/auth/Login";
-import ModalAccess from "./ModalAccess";
 import { useState } from "react";
-import { logOut, selectCurrentToken } from "../features/auth/authSlice";
+import { logOut, selectCurrentToken } from "../../features/auth/authSlice";
+import SignupForm from "../../features/users/SignupForm";
+import ModalAccess from "../ModalAccess";
+import Login from "../../features/auth/Login";
 
 const Avagroup = () => {
   const dispatch = useDispatch();
