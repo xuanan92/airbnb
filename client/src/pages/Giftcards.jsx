@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 
-export default function Giftcards() {
+export const Giftcards = () => {
   return (
     <>
       <header className="flex flex-row justify-between items-center px-16 mx-8 h-20">
@@ -142,7 +141,7 @@ export default function Giftcards() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
-}
+};
+export default Giftcards;

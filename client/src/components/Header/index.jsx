@@ -1,5 +1,5 @@
 import Avagroup from "./Avagroup.jsx";
-import Logo from "./Logo.jsx";
+import Logo from "../Logo.jsx";
 import SearchGroup from "./SearchGroup.jsx";
 const Header = () => {
   return (

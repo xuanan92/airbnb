@@ -12,9 +12,9 @@ import {
 } from "@mui/icons-material";
 import { nanoid } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
-const Account = () => {
+const AccountSettings = () => {
   const { email } = useAuth();
   const cards = [
     {
@@ -100,4 +100,4 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default AccountSettings;

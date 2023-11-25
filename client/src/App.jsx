@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import Account from "./components/Account";
-import Giftcards from "./components/Giftcards";
-import Layout from "./components/Layout";
-import Redeem from "./components/Redeem";
-import AddRoom from "./features/rooms/AddRoom";
-import EditRoom from "./features/rooms/EditRoom";
+import PrimeLayout from "./layouts/PrimeLayout";
 import RoomsList from "./features/rooms/RoomsList";
+import AddRoom from "./features/rooms/AddRoom";
 import SingleRoom from "./features/rooms/SingleRoom";
+import EditRoom from "./features/rooms/EditRoom";
+import EmptyLayout from "./layouts/EmptyLayout";
+import Giftcards from "./pages/Giftcards";
+import Redeem from "./pages/Redeem";
+import DashLayout from "./layouts/DashLayout";
+import AccountSettings from "./features/users/AccountSettings";
 
 // import PersistLogin from "./features/auth/PersistLogin";
 
@@ -20,7 +22,7 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<PrimeLayout />}>
           <Route index element={<RoomsList />} />
           <Route path="rooms">
             <Route index element={<RoomsList />} />
@@ -33,13 +35,18 @@ function App() {
               <Route path="edit" element={<EditRoom />} />
             </Route>
           </Route>
+        </Route>
 
+        <Route path="/" element={<EmptyLayout />}>
+          <Route path="giftcards" element={<Giftcards />} />
+          <Route path="gift" element={<Redeem />} />
+        </Route>
+
+        <Route path="/" element={<DashLayout />}>
           {/* <Route element={<PersistLogin />}> */}
-          <Route path="account-settings" element={<Account />} />
+          <Route path="account-settings" element={<AccountSettings />} />
           {/* </Route> */}
         </Route>
-        <Route path="giftcards" element={<Giftcards />} />
-        <Route path="gift" element={<Redeem />} />
       </Routes>
     </div>
   );
