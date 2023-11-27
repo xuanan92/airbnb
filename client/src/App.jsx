@@ -5,8 +5,8 @@ import AddRoom from "./features/rooms/AddRoom";
 import SingleRoom from "./features/rooms/SingleRoom";
 import EditRoom from "./features/rooms/EditRoom";
 import EmptyLayout from "./layouts/EmptyLayout";
-import Giftcards from "./pages/Giftcards";
-import Redeem from "./pages/Redeem";
+import Giftcards from "./components//Giftcards";
+import Redeem from "./components/Redeem";
 import DashLayout from "./layouts/DashLayout";
 import AccountSettings from "./features/users/AccountSettings";
 

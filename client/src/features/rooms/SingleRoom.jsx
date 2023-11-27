@@ -21,7 +21,7 @@ const SingleRoom = () => {
         <div className="grid">
           <div className="flex">
             <div className="flex-auto py-8 text-black">
-              <h2>{room.title}</h2>
+              <h1>{room.title}</h1>
               <ol className="inline-flex gap-4 text-xl">
                 {room.listingGuestLabel}{" "}
                 {room.bedrooms ? `${room.bedrooms} bedrooms` : ""}{" "}

@@ -2,11 +2,10 @@ import { Search } from "@mui/icons-material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { format } from "date-fns";
 import { useState } from "react";
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/dist/style.css";
 import Avagroup from "../../components/Header/Avagroup";
 import Logo from "../../components/Logo";
 import SelectRegions from "./SelectRegions";
+import DateRangePicker from "./DateRangePicker";
 
 const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
   const [isModalGeoOpen, setIsModalGeoOpen] = useState(false);
@@ -14,8 +13,9 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
   const [checkInToggle, setCheckInToggle] = useState(false);
   const [checkOutToggle, setCheckOutToggle] = useState(false);
   const [isModalDayPickOpen, setIsModalDayPickOpen] = useState(false);
-  const [numberOfGuests] = useState("");
-  const [range, setRange] = useState(null);
+  const [numberOfGuests, setNumberOfGuests] = useState("");
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const onChangeRegions = (e) => {
     setSearchLocation(e.target.value);
   };
@@ -80,7 +80,7 @@ const SearchModal = ({ isSearchModalOpen, handleModalClose }) => {
             <label
               onClick={() => setCheckInToggle(!checkInToggle)}
               className={`${
-                range?.from && !range?.to
+                startDate && !endDate
                   ? "bg-white rounded-full shadow-2xl shadow-black"
                   : ""
               }
@@ -90,7 +90,7 @@ flex flex-col justify-center p-2 px-8 focus-within:bg-white focus-within:rounded
               <input
                 type="text"
                 className="bg-transparent hover:cursor-pointer focus:outline-none"
-                value={range?.from && format(range?.from, "MMM dd")}
+                value={startDate ? format(startDate, "MMM dd") : ""}
                 readOnly
                 placeholder="Add dates"
               />
@@ -98,14 +98,14 @@ flex flex-col justify-center p-2 px-8 focus-within:bg-white focus-within:rounded
             <label
               onClick={() => setCheckOutToggle(!checkOutToggle)}
               className={`${
-                range?.to ? "bg-white rounded-full shadow-black shadow-2xl" : ""
+                endDate ? "bg-white rounded-full shadow-black shadow-2xl" : ""
               } flex flex-col justify-center p-2 px-8 focus-within:bg-white focus-within:rounded-full focus-within:shadow-2xl hover:bg-gray-200 hover:rounded-full hover:cursor-pointer focus-within:shadow-gray-500 hover:focus-within:bg-white`}
             >
               <h6 className="whitespace-nowrap">Check out</h6>
               <input
                 type="text"
                 className="bg-transparent hover:cursor-pointer focus:outline-none"
-                value={range?.to ? format(range?.to, "MMM dd") : ""}
+                value={endDate ? format(endDate, "MMM dd") : ""}
                 readOnly
                 placeholder="Add dates"
               />
@@ -143,16 +143,11 @@ flex flex-col justify-center p-2 px-8 focus-within:bg-white focus-within:rounded
           {isModalDayPickOpen && (
             <>
               <div className="flex absolute -bottom-4 translate-y-[100%] border justify-center w-full bg-white rounded-2xl z-[104]">
-                <DayPicker
-                  mode="range"
-                  numberOfMonths={2}
-                  selected={range}
-                  defaultMonth={new Date()}
-                  disabled={new Date(1900, 0, 1)}
-                  onSelect={setRange}
-                  pagedNavigation
-                  showOutsideDays
-                  fixedWeeks
+                <DateRangePicker
+                  startDate={startDate}
+                  setStartDate={setStartDate}
+                  endDate={endDate}
+                  setEndDate={setEndDate}
                 />
               </div>
             </>
