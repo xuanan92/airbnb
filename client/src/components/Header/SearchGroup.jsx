@@ -1,27 +1,24 @@
 import { useState } from "react";
-import SearchModal from "../../features/search/SearchModal";
+import SearchModal from "../../features/search/SearchModal.jsx";
 
 const SearchGroup = () => {
-  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
-  const handleSearchModalOpen = () => {
-    setIsSearchModalOpen(!isSearchModalOpen);
-  };
-  const handleSearchModalClose = () => {
-    setIsSearchModalOpen(false);
+  const [isSearchModal, setIsSearchModal] = useState(false);
+  const handleSearchModal = () => {
+    setIsSearchModal(!isSearchModal);
   };
   return (
     <>
-      <div
+      <section
         className="flex justify-center items-center cursor-pointer"
-        onClick={handleSearchModalOpen}
+        onClick={handleSearchModal}
       >
-        <div className="flex gap-2 justify-between items-center p-2 px-8 rounded-full border shadow-sm text-md shadow-gray-400 hover:shadow-gray-500">
-          <div className="text-black font-regular">Anywhere</div>
+        <ul className="flex gap-2 justify-between items-center p-2 px-8 rounded-full border shadow-sm text-md shadow-gray-400 hover:shadow-gray-500">
+          <li className="text-black font-regular">Anywhere</li>
           <div className="">|</div>
-          <div className="text-black font-regular">Any week</div>
+          <li className="text-black font-regular">Any week</li>
           <div className="">|</div>
-          <div className="">Add guests</div>
-          <div className="p-1 bg-red-500 rounded-full">
+          <li className="">Add guests</li>
+          <figure className="p-1 bg-red-500 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -34,13 +31,13 @@ const SearchGroup = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </div>
-        </div>
-      </div>
-      {isSearchModalOpen && (
+          </figure>
+        </ul>
+      </section>
+      {isSearchModal && (
         <SearchModal
-          handleModalClose={handleSearchModalClose}
-          isSearchModal={isSearchModalOpen}
+          handleSearchModal={handleSearchModal}
+          isSearchModal={isSearchModal}
         />
       )}
     </>

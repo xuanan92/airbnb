@@ -9,16 +9,11 @@ import Giftcards from "./components//Giftcards";
 import Redeem from "./components/Redeem";
 import DashLayout from "./layouts/DashLayout";
 import AccountSettings from "./features/users/AccountSettings";
+import OnlineExperiences from "./pages/OnlineExperiences";
 
 // import PersistLogin from "./features/auth/PersistLogin";
 
 function App() {
-  // SOME: <>@@() &0& #0# =change icon and css for filters scrollbar=
-  // SOME: <>@@() &0& #0# =add more motel to the app=
-  // SOME: <>@@() &0& #0# =add slide css to roomexcerpt=
-  // SOME: <>@@() &0& #0# =create filter button => new modal filter created=
-  // SOME: <>@@() &0& #0# =Adding footer=
-  // SOME: <>@@() &0& #0# =add slide with 5 points below Image Slider=
   return (
     <div className="app">
       <Routes>
@@ -40,6 +35,7 @@ function App() {
         <Route path="/" element={<EmptyLayout />}>
           <Route path="giftcards" element={<Giftcards />} />
           <Route path="gift" element={<Redeem />} />
+          <Route path="/s/experiences/online" element={<OnlineExperiences />} />
         </Route>
 
         <Route path="/" element={<DashLayout />}>

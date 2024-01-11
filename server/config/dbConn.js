@@ -2,10 +2,7 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.REACT_APP_DATABASE_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.REACT_APP_DATABASE_URL);
   } catch (err) {
     console.log(err);
   }

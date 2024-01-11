@@ -96,6 +96,7 @@
   font-family: "Helvetica Neue", helvetica, arial, sans-serif;
   font-size: 0.8rem;
   background-color: #fff;
+  padding: 10px;
   color: #000;
   border: 1px none #aeaeae;
   border-radius: 0.3rem;
@@ -264,6 +265,7 @@
 
 .react-datepicker__month-container {
   float: left;
+  margin-inline: 30px;
 }
 
 .react-datepicker__year {
@@ -484,6 +486,8 @@
   line-height: 1.7rem;
   text-align: center;
   margin: 0.166rem;
+  padding-inline: 20px;
+  padding-top: 10px;
 }
 
 .react-datepicker__day,
