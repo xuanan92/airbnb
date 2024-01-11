@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Avagroup from "../../../components/Header/Avagroup";
-import Logo from "../../../components/Logo";
+import Avagroup from "../../../../components/Header/Avagroup";
+import Logo from "../../../../components/Logo";
 
 const SearchHeader = ({ handleGeoModal, isSearchModal }) => {
   return (

@@ -1,8 +1,9 @@
 import { Search } from "@mui/icons-material";
 import { Grid } from "@mui/material";
 import { useState } from "react";
-import SearchDateRange from "../SearchDateRange";
-import SearchRegions from "../SearchRegions";
+import SearchRegions from "./SearchRegions";
+import SearchDateRange from "./SearchDateRange";
+import FormInputs from "./FormInputs";
 
 const SearchForm = ({ isModalGeo, handleGeoModal }) => {
   const [searchLocation, setSearchLocation] = useState("");
@@ -14,7 +15,8 @@ const SearchForm = ({ isModalGeo, handleGeoModal }) => {
     setSearchLocation(e.target.value);
   };
   return (
-    <div className="fixed left-0 top-24 w-full h-24 bg-white z-[100]">
+    <div className="flex fixed left-0 top-24 flex-col w-full h-24 bg-white z-[100]">
+      <FormInputs />
       <form className="flex relative items-center m-auto bg-gray-100 rounded-full w-[848px]">
         {/* component search geo button */}
         <SearchRegions onChangeRegions={onChangeRegions} />
@@ -55,6 +57,7 @@ const SearchForm = ({ isModalGeo, handleGeoModal }) => {
           </Grid>
         </div>
       </form>
+      <div></div>
       {/* display part is here */}
     </div>
   );
