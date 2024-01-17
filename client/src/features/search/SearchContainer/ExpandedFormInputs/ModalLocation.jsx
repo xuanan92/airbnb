@@ -40,50 +40,29 @@ const ModalLocation = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb_7QbdF1lE25TRXEmiTGXOy5qj3oYAjYuQVyXcYFgLSGT5rgiZZuJemVnKo8gX7Xy6rs&usqp=CAU",
     },
   ];
-  // const contentOptions = database.reduce((accumulatorrep, region, index) => {
-  // const isSelected = index === selectedOption;
-  // if (region.name.toLowerCase().startsWith(inputRegion.toLowerCase())) {
-  //   accumulatorrep.push(
-  //     <Grid
-  //       containter
-  //       direction="row"
-  //       alignItems="center"
-  //       key={region.id}
-  //       className={`${isSelected ? "bg-white-200" : ""} flex gap-4 p-2 ml-4`}
-  //     >
-  //       <div className="p-2 bg-gray-100 rounded-2xl">
-  //         <Place fontSize="large" />
-  //       </div>
-  //       <p>{region.name}</p>
-  //     </Grid>,
-  //   );
-  // }
-  //   return accumulatorrep;
-  // }, []);
+  const contentOptions = database.reduce((accumulatorrep, region, index) => {
+    const isSelected = index === selectedOption;
+    if (region.name.toLowerCase().startsWith(inputRegion.toLowerCase())) {
+      accumulatorrep.push(
+        <Grid
+          containter
+          direction="row"
+          alignItems="center"
+          key={region.id}
+          className={`${isSelected ? "bg-white-200" : ""} flex gap-4`}
+        >
+          <div className="p-2 bg-gray-100 rounded-2xl">
+            <Place fontSize="large" />
+          </div>
+          <p>{region.name}</p>
+        </Grid>,
+      );
+    }
+    return accumulatorrep;
+  }, []);
   return (
     <div className="flex overflow-scroll flex-col gap-4 p-8 mt-4 w-96 text-black bg-white rounded-3xl border border-gray-300 min-h-[185px] max-h-[300px]">
-      <Grid
-        containter
-        direction="row"
-        alignItems="center"
-        className="flex gap-4"
-      >
-        <div className="p-2 bg-gray-100 rounded-2xl">
-          <Place fontSize="large" />
-        </div>
-        <p>Hanoi</p>
-      </Grid>
-      <Grid
-        containter
-        direction="row"
-        alignItems="center"
-        className="flex gap-4"
-      >
-        <div className="p-2 bg-gray-100 rounded-2xl">
-          <Place fontSize="large" />
-        </div>
-        <p>Ho Chi Minh</p>
-      </Grid>
+      {contentOptions}
     </div>
   );
 };

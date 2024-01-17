@@ -45,7 +45,7 @@ const FormInputs = ({
           className="flex flex-col py-2 px-6 text-left bg-transparent rounded-full cursor-pointer focus-within:bg-white focus-within:border focus-within:border-gray-300 focus-within:shadow-2xl focus-within:scale-105 hover:bg-gray-300 basis-1/2 focus-within:shadow-gray-300 focus-within:hover:bg-white"
         >
           <b>Check in</b>
-          {/* Next: add function update value from datepicker to input replace add date */}
+          {/* done: add function update value from datepicker to input replace add date */}
           <input
             className="bg-transparent cursor-pointer outline-none w-[80px]"
             type="text"
@@ -76,6 +76,7 @@ const FormInputs = ({
       >
         <label className="flex flex-col flex-auto py-2 px-6 text-left peer basis-1/2">
           <b>Who</b>
+          {/* Next: code function update value guest from expanded form to input  */}
           <input
             className="bg-transparent cursor-pointer outline-none w-[80px]"
             type="text"
