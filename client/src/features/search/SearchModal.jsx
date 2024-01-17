@@ -1,8 +1,7 @@
 import { useState } from "react";
-import SearchHeader from "./SearchHeader";
-import SearchForm from "./SearchForm";
-import BlackModal from "./BlackModal";
-
+import SearchHeader from "./components/SearchHeader";
+import SearchContainer from "./SearchContainer";
+import BlackModal from "./components/BlackModal";
 const SearchModal = ({ isSearchModal, handleSearchModal }) => {
   const [isModalGeo, setIsModalGeo] = useState(false);
   const handleGeoModal = () => {
@@ -17,7 +16,7 @@ const SearchModal = ({ isSearchModal, handleSearchModal }) => {
         handleGeoModal={handleGeoModal}
         isSearchModal={isSearchModal}
       />
-      <SearchForm
+      <SearchContainer
         handleGeoModal={handleGeoModal}
         isSearchModal={isSearchModal}
       />

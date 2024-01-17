@@ -14,11 +14,13 @@ rooms/:roomId
           SearchHeader
             Logo 
             AvaGroup
+          SearchContainer
           SearchForm (states)
             FormInputs
-            SearchRegions (props and functions change) [f1]
-            SearchDateRange
-            SearchGuests
+            ExpandedFormInputs
+              SearchArea
+              SearchDateRange
+              SearchGuests
           BlackModal
       AvaGroup
     Navigator
