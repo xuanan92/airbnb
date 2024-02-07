@@ -183,9 +183,6 @@ const Login = ({ handleLogin }) => {
               <hr />
             </div>
           </div>
-          <p className="text-xs italic">
-            !!!Phone, Facebook, Google, and Apple is temporary not working
-          </p>
           <div className="flex flex-col gap-4">
             <Grid
               className="py-4 rounded-lg border transition-all cursor-pointer active:scale-95"
@@ -232,15 +229,15 @@ const Login = ({ handleLogin }) => {
                 <h6 className="flex-auto text-center">Continue with Google</h6>
               </Grid>
             </button>
-            <Grid
-              className="py-4 rounded-lg border transition-all cursor-pointer active:scale-95"
-              container
-              direction="row"
-              alignItems="center"
-            >
-              <Apple className="absolute left-8" />
-              <h6 className="flex-auto text-center">Continue with Apple</h6>
-            </Grid>
+            {/* <Grid */}
+            {/*   className="py-4 rounded-lg border transition-all cursor-pointer active:scale-95" */}
+            {/*   container */}
+            {/*   direction="row" */}
+            {/*   alignItems="center" */}
+            {/* > */}
+            {/*   <Apple className="absolute left-8" /> */}
+            {/*   <h6 className="flex-auto text-center">Continue with Apple</h6> */}
+            {/* </Grid> */}
             {!switchForm && (
               <Grid
                 className="py-4 rounded-lg border transition-all cursor-pointer active:scale-95"

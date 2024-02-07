@@ -15,7 +15,7 @@ const ModalAccess = ({
         className="fixed inset-0 z-30 bg-transparent"
         onClick={handleModal}
       ></div>
-      <div className="absolute py-1 w-60 text-black z-40 -bottom-1 right-0 translate-y-[100%] bg-white rounded-lg border shadow-md text-left">
+      <div className="absolute py-1 w-60 text-black z-[110] -bottom-1 right-0 translate-y-[100%] bg-white rounded-lg border shadow-md text-left">
         <ul className="flex flex-col">
           {!token ? (
             <>

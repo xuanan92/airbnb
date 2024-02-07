@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchModal from "../../features/search/SearchModal";
+import Logo from "../Logo";
 
 const SearchGroup = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
